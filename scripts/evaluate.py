@@ -15,6 +15,15 @@ from gemma4_classroom.evaluation import score_table
 from gemma4_classroom.prompting import build_inference_prompt
 
 
+def resolve_unsloth_api():
+    try:
+        from unsloth import FastLanguageModel  # type: ignore
+
+        return FastLanguageModel
+    except ImportError:
+        return None
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Evaluate base vs tuned Gemma 4 models.")
     parser.add_argument("--config", default="configs/eval.yaml")
@@ -22,7 +31,24 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def load_generation_model(model_id: str, adapter_path: str | None = None, use_4bit: bool = False):
+def load_generation_model(
+    model_id: str,
+    adapter_path: str | None = None,
+    use_4bit: bool = False,
+    max_seq_length: int = 768,
+):
+    if adapter_path:
+        unsloth_api = resolve_unsloth_api()
+        if unsloth_api is None:
+            raise RuntimeError("Unsloth is required to load the tuned Gemma 4 adapter for evaluation.")
+        model, tokenizer = unsloth_api.from_pretrained(
+            model_name=adapter_path,
+            max_seq_length=max_seq_length,
+            dtype="bfloat16" if torch.cuda.is_available() else None,
+            load_in_4bit=False,
+        )
+        return model, tokenizer
+
     tokenizer = AutoTokenizer.from_pretrained(adapter_path or model_id)
     model_kwargs: dict[str, Any] = {
         "low_cpu_mem_usage": True,
@@ -114,6 +140,7 @@ def main() -> None:
     base_model, base_tokenizer = load_generation_model(
         cfg["model"]["base_model_id"],
         use_4bit=cfg["model"].get("use_4bit", False),
+        max_seq_length=cfg["model"].get("max_seq_length", 768),
     )
     base_rows = run_eval_rows(base_model, base_tokenizer, dataset, cfg["generation"])
     release_model(base_model)
@@ -122,6 +149,7 @@ def main() -> None:
         cfg["model"]["base_model_id"],
         adapter_path=cfg["model"]["adapter_path"],
         use_4bit=cfg["model"].get("use_4bit", False),
+        max_seq_length=cfg["model"].get("max_seq_length", 768),
     )
     tuned_rows = run_eval_rows(tuned_model, tuned_tokenizer, dataset, cfg["generation"])
     release_model(tuned_model)

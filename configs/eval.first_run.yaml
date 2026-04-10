@@ -2,6 +2,7 @@ model:
   base_model_id: "google/gemma-4-E4B-it"
   adapter_path: "artifacts/adapters/first-run"
   use_4bit: true
+  max_seq_length: 768
 
 data:
   test_path: "data/processed/test.jsonl"
