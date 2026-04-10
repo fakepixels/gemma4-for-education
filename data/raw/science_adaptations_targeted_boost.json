@@ -1,0 +1,146 @@
+[
+  {
+    "source_id": "z_electric_circuits_switches_001",
+    "topic": "electric_circuits",
+    "grade_band": "middle_school",
+    "source_text": "A switch controls whether an electric circuit is open or closed. In a closed circuit, the path is complete, so current can flow to a device such as a bulb. In an open circuit, the path is broken, so current cannot flow. Turning a switch changes the circuit from open to closed or from closed to open. This is why a switch can turn electrical devices on or off.",
+    "must_keep_facts": [
+      "A switch controls whether a circuit is open or closed.",
+      "A closed circuit has a complete path.",
+      "Current can flow in a closed circuit.",
+      "An open circuit has a broken path, so current cannot flow.",
+      "A switch can turn a device on or off by changing the circuit."
+    ],
+    "rewrites": {
+      "below": "A switch controls a circuit. It can make the circuit open or closed. A closed circuit has a complete path. Then current can flow to a bulb or another device. An open circuit has a broken path. Then current cannot flow. When you flip a switch, the path changes. That is why a switch can turn a device on or off.\n\nKey Concepts Preserved\n- A switch changes a circuit.\n- A closed circuit has a complete path.\n- Current flows in a closed circuit.\n- An open circuit has a broken path.\n- A switch can turn a device on or off.",
+      "on": "A switch controls whether an electric circuit is open or closed. In a closed circuit, the path is complete, so current can flow to a bulb or another device. In an open circuit, the path is broken, so current cannot flow. When the switch changes position, it changes the circuit from open to closed or from closed to open. That is why a switch can turn electrical devices on or off.\n\nKey Concepts Preserved\n- A switch controls whether a circuit is open or closed.\n- Closed circuits have complete paths.\n- Current flows in closed circuits.\n- Open circuits stop current.\n- Switches can turn devices on or off.",
+      "above": "A switch controls whether an electric circuit is open or closed by changing the continuity of the path through which current travels. In a closed circuit, the path is complete and electric current can reach a device such as a bulb, whereas in an open circuit the path is broken and current cannot flow. Because a switch can change the circuit from one state to the other, it allows a user to turn an electrical device on or off.\n\nKey Concepts Preserved\n- A switch controls whether a circuit is open or closed.\n- A closed circuit has a complete path.\n- Current flows in a closed circuit.\n- An open circuit has a broken path and stops current.\n- A switch can turn a device on or off."
+    }
+  },
+  {
+    "source_id": "z_electric_circuits_resistance_001",
+    "topic": "electric_circuits",
+    "grade_band": "middle_school",
+    "source_text": "Resistance is a measure of how much a material opposes the flow of electric current. Materials with low resistance, such as many metals, allow current to flow more easily. Materials with high resistance make it harder for current to move. The amount of resistance in a circuit affects how much current flows. Engineers and scientists use resistance to design circuits that work safely and effectively.",
+    "must_keep_facts": [
+      "Resistance measures how much a material opposes current.",
+      "Low-resistance materials let current flow more easily.",
+      "High-resistance materials make current harder to move.",
+      "Resistance affects how much current flows in a circuit.",
+      "Resistance is used to design safe and effective circuits."
+    ],
+    "rewrites": {
+      "below": "Resistance tells how much a material fights the flow of current. Some materials, like many metals, have low resistance. Current can move through them more easily. Other materials have high resistance. Current moves through them less easily. Resistance changes how much current flows in a circuit. People use resistance when they design circuits that need to work safely.\n\nKey Concepts Preserved\n- Resistance opposes current.\n- Low resistance lets current flow more easily.\n- High resistance makes current harder to move.\n- Resistance affects current in a circuit.\n- Resistance helps people design safe circuits.",
+      "on": "Resistance is a measure of how much a material opposes electric current. Materials with low resistance, such as many metals, let current flow more easily. Materials with high resistance make current harder to move. Because of this, the amount of resistance in a circuit affects how much current flows. Engineers and scientists use resistance when they design circuits that must work safely and effectively.\n\nKey Concepts Preserved\n- Resistance measures opposition to current.\n- Low-resistance materials let current flow more easily.\n- High-resistance materials slow current.\n- Resistance changes current flow in a circuit.\n- Resistance helps with safe circuit design.",
+      "above": "Resistance describes how strongly a material opposes the movement of electric current through a circuit. Materials with relatively low resistance, including many metals, allow current to travel more easily, while materials with higher resistance make that movement more difficult. Since resistance influences how much current flows, engineers and scientists use it when designing circuits that must operate both effectively and safely.\n\nKey Concepts Preserved\n- Resistance measures how much a material opposes current.\n- Low resistance allows current to flow more easily.\n- High resistance makes current harder to move.\n- Resistance affects current flow in a circuit.\n- Resistance is important in safe and effective circuit design."
+    }
+  },
+  {
+    "source_id": "z_atoms_molecules_states_001",
+    "topic": "atoms_and_molecules",
+    "grade_band": "middle_school",
+    "source_text": "The particles in solids, liquids, and gases are always moving, but they move in different ways. In solids, particles are packed closely together and mostly vibrate in place. In liquids, particles stay close together but can slide past one another. In gases, particles are much farther apart and move freely. These differences in particle motion help explain the properties of each state of matter.",
+    "must_keep_facts": [
+      "Particles in solids, liquids, and gases are always moving.",
+      "Particles in solids are close together and mostly vibrate in place.",
+      "Particles in liquids are close together and can slide past each other.",
+      "Particles in gases are farther apart and move freely.",
+      "Particle motion helps explain the properties of each state of matter."
+    ],
+    "rewrites": {
+      "below": "Particles in solids, liquids, and gases are always moving. In a solid, the particles stay close together. They mostly vibrate in place. In a liquid, the particles are still close together. They can slide past each other. In a gas, the particles are farther apart. They move freely. These movements help explain the properties of each state of matter.\n\nKey Concepts Preserved\n- Particles are always moving.\n- Solid particles are close and vibrate.\n- Liquid particles are close and slide.\n- Gas particles are farther apart and move freely.\n- Particle motion explains states of matter.",
+      "on": "The particles in solids, liquids, and gases are always moving, but they move in different ways. In solids, particles are packed closely together and mostly vibrate in place. In liquids, particles remain close together but can slide past one another. In gases, particles are much farther apart and move freely. These different patterns of particle motion help explain the properties of each state of matter.\n\nKey Concepts Preserved\n- Particles are always moving.\n- Solid particles are close together and vibrate.\n- Liquid particles stay close and slide past one another.\n- Gas particles are farther apart and move freely.\n- Particle motion explains state properties.",
+      "above": "Particles in solids, liquids, and gases are constantly moving, although the pattern of motion differs from one state of matter to another. In solids, particles are tightly packed and mainly vibrate in place, while in liquids they remain close together but are able to slide past one another. In gases, particles are much farther apart and move freely through space. These differences in particle motion help explain why each state of matter has its own properties.\n\nKey Concepts Preserved\n- Particles in all states of matter are always moving.\n- Solid particles are close together and mostly vibrate in place.\n- Liquid particles stay close together and slide past one another.\n- Gas particles are farther apart and move freely.\n- Particle motion explains the properties of each state."
+    }
+  },
+  {
+    "source_id": "z_atoms_molecules_changes_001",
+    "topic": "atoms_and_molecules",
+    "grade_band": "middle_school",
+    "source_text": "In a chemical reaction, atoms are rearranged to form new substances. The atoms themselves are not destroyed, but the bonds between them can break and new bonds can form. Because of this rearrangement, the products of a reaction can have different properties from the reactants. Scientists use chemical equations to show which atoms are present before and after a reaction. A balanced chemical equation shows that the number of each kind of atom stays the same.",
+    "must_keep_facts": [
+      "Atoms are rearranged during a chemical reaction.",
+      "Atoms are not destroyed in the reaction.",
+      "Bonds can break and new bonds can form.",
+      "Products can have different properties from reactants.",
+      "A balanced equation shows that the number of each kind of atom stays the same."
+    ],
+    "rewrites": {
+      "below": "In a chemical reaction, atoms get rearranged. The atoms are not destroyed. Old bonds can break, and new bonds can form. Because the atoms get arranged in new ways, the products can have different properties from the reactants. Scientists use chemical equations to show what atoms are there before and after the reaction. A balanced equation shows that the number of each kind of atom stays the same.\n\nKey Concepts Preserved\n- Atoms are rearranged in a chemical reaction.\n- Atoms are not destroyed.\n- Bonds can break and new bonds can form.\n- Products can have different properties.\n- Balanced equations keep atom counts the same.",
+      "on": "In a chemical reaction, atoms are rearranged to form new substances. The atoms themselves are not destroyed, but the bonds between them can break and new bonds can form. Because the atoms are arranged differently, the products of the reaction can have different properties from the reactants. Scientists use chemical equations to show which atoms are present before and after a reaction. A balanced equation shows that the number of each kind of atom remains the same.\n\nKey Concepts Preserved\n- Chemical reactions rearrange atoms.\n- Atoms are not destroyed.\n- Bonds can break and form.\n- Products can differ from reactants.\n- Balanced equations keep atom numbers the same.",
+      "above": "During a chemical reaction, atoms are rearranged to create new substances, even though the atoms themselves are not destroyed. Existing bonds can break and new bonds can form, which changes how the atoms are connected. Because of that rearrangement, the products of a reaction may have properties that differ from those of the reactants. Scientists represent this process with chemical equations, and a balanced equation shows that the number of each kind of atom is conserved.\n\nKey Concepts Preserved\n- Atoms are rearranged during chemical reactions.\n- Atoms are not destroyed.\n- Bonds can break and new bonds can form.\n- Products can have different properties from reactants.\n- Balanced equations show the same number of each kind of atom."
+    }
+  },
+  {
+    "source_id": "z_ecosystems_populations_001",
+    "topic": "ecosystems",
+    "grade_band": "middle_school",
+    "source_text": "A population is all the members of one species living in the same area, while a community includes all the different populations in that area. The size of a population can change when resources such as food, water, or shelter become more or less available. Predators, disease, and competition can also affect population size. Because populations interact, a change in one population can influence other species in the community. Scientists study these patterns to understand how ecosystems change over time.",
+    "must_keep_facts": [
+      "A population is all members of one species in the same area.",
+      "A community includes different populations in the same area.",
+      "Resource availability can change population size.",
+      "Predators, disease, and competition can affect population size.",
+      "Changes in one population can influence other species in the community."
+    ],
+    "rewrites": {
+      "below": "A population is all the members of one species living in one area. A community includes different populations living in that area. A population can grow or shrink when food, water, or shelter changes. Predators, disease, and competition can change population size too. Populations affect each other. If one population changes, other species in the community can change too. Scientists study these patterns to understand ecosystems.\n\nKey Concepts Preserved\n- A population is one species in one area.\n- A community includes different populations.\n- Resources can change population size.\n- Predators, disease, and competition matter.\n- One population can affect other species.",
+      "on": "A population is all the members of one species living in the same area, while a community includes all the different populations in that area. Population size can change when resources such as food, water, or shelter become more or less available. Predators, disease, and competition can also affect how large a population becomes. Because populations interact with one another, a change in one population can influence other species in the community. Scientists study these patterns to understand how ecosystems change over time.\n\nKey Concepts Preserved\n- A population is one species in one area.\n- A community includes different populations.\n- Resources can change population size.\n- Predators, disease, and competition affect populations.\n- Changes in one population can influence others.",
+      "above": "A population consists of all members of one species living in the same area, whereas a community includes the different populations that share that area. Population size can increase or decrease when resources such as food, water, or shelter become more or less available, and factors like predators, disease, and competition can also change it. Since populations interact with one another, a shift in one population can influence other species within the community. Scientists study these relationships to understand how ecosystems change over time.\n\nKey Concepts Preserved\n- A population is all members of one species in an area.\n- A community includes different populations in that area.\n- Resource availability can change population size.\n- Predators, disease, and competition affect populations.\n- Changes in one population can influence other species."
+    }
+  },
+  {
+    "source_id": "z_ecosystems_biodiversity_001",
+    "topic": "ecosystems",
+    "grade_band": "middle_school",
+    "source_text": "Biodiversity refers to the variety of living things in an ecosystem. Ecosystems with greater biodiversity often have more complex food webs and a wider range of interactions among organisms. High biodiversity can help an ecosystem recover from disturbances because some species may survive and continue important functions. When biodiversity decreases, ecosystems may become less stable. Scientists work to protect biodiversity because it supports healthy ecosystems.",
+    "must_keep_facts": [
+      "Biodiversity is the variety of living things in an ecosystem.",
+      "Greater biodiversity often means more complex food webs and interactions.",
+      "High biodiversity can help ecosystems recover from disturbances.",
+      "Lower biodiversity can make ecosystems less stable.",
+      "Scientists protect biodiversity because it supports healthy ecosystems."
+    ],
+    "rewrites": {
+      "below": "Biodiversity means the variety of living things in an ecosystem. When biodiversity is high, food webs are often more complex and organisms have more interactions. High biodiversity can help an ecosystem recover after a disturbance. Some species may survive and keep important jobs going. When biodiversity gets lower, an ecosystem can become less stable. Scientists try to protect biodiversity because it helps ecosystems stay healthy.\n\nKey Concepts Preserved\n- Biodiversity is the variety of living things.\n- High biodiversity means more interactions.\n- High biodiversity can help recovery.\n- Low biodiversity can reduce stability.\n- Biodiversity supports healthy ecosystems.",
+      "on": "Biodiversity refers to the variety of living things in an ecosystem. Ecosystems with greater biodiversity often have more complex food webs and more interactions among organisms. High biodiversity can help an ecosystem recover from disturbances because some species may survive and continue important functions. When biodiversity decreases, ecosystems may become less stable. Scientists work to protect biodiversity because it supports healthy ecosystems.\n\nKey Concepts Preserved\n- Biodiversity is the variety of living things in an ecosystem.\n- Greater biodiversity often means more complex interactions.\n- High biodiversity can help ecosystems recover.\n- Lower biodiversity can reduce stability.\n- Biodiversity supports healthy ecosystems.",
+      "above": "Biodiversity is the variety of living things within an ecosystem, and ecosystems with greater biodiversity often contain more complex food webs and a wider range of interactions among organisms. High biodiversity can make recovery from disturbances more likely because some species may survive and continue important ecological functions. When biodiversity declines, ecosystems may become less stable. Scientists try to protect biodiversity because it helps support healthy, functioning ecosystems.\n\nKey Concepts Preserved\n- Biodiversity refers to the variety of living things in an ecosystem.\n- Greater biodiversity often leads to more complex food webs and interactions.\n- High biodiversity can help ecosystems recover from disturbances.\n- Lower biodiversity can make ecosystems less stable.\n- Biodiversity supports healthy ecosystems."
+    }
+  },
+  {
+    "source_id": "z_cells_organelles_001",
+    "topic": "cells",
+    "grade_band": "middle_school",
+    "source_text": "Cells contain structures called organelles that carry out different jobs. The nucleus stores DNA and helps control cell activities. Mitochondria release energy from food for the cell to use. Ribosomes help build proteins. The cell membrane controls what enters and leaves the cell. Because organelles have specialized functions, they help the cell stay alive and work properly.",
+    "must_keep_facts": [
+      "Cells contain organelles with different jobs.",
+      "The nucleus stores DNA and helps control cell activities.",
+      "Mitochondria release energy from food.",
+      "Ribosomes help build proteins.",
+      "The cell membrane controls what enters and leaves the cell."
+    ],
+    "rewrites": {
+      "below": "Cells have small parts called organelles. Each organelle has a job. The nucleus stores DNA and helps control what the cell does. Mitochondria release energy from food. Ribosomes help make proteins. The cell membrane controls what goes into the cell and what leaves it. These organelles help the cell stay alive and work the right way.\n\nKey Concepts Preserved\n- Cells have organelles with different jobs.\n- The nucleus stores DNA and helps control the cell.\n- Mitochondria release energy from food.\n- Ribosomes build proteins.\n- The cell membrane controls what enters and leaves.",
+      "on": "Cells contain structures called organelles that perform different jobs. The nucleus stores DNA and helps control cell activities. Mitochondria release energy from food for the cell to use. Ribosomes help build proteins, and the cell membrane controls what enters and leaves the cell. Because each organelle has a specialized function, these structures help the cell stay alive and work properly.\n\nKey Concepts Preserved\n- Cells contain organelles with different jobs.\n- The nucleus stores DNA and helps control activities.\n- Mitochondria release energy from food.\n- Ribosomes build proteins.\n- The cell membrane controls what enters and leaves.",
+      "above": "Cells contain organelles, which are structures that carry out specialized functions needed for cell survival. The nucleus stores DNA and helps regulate cell activities, mitochondria release energy from food, ribosomes help build proteins, and the cell membrane controls what enters and leaves the cell. Because these organelles perform different jobs, they work together to keep the cell alive and functioning properly.\n\nKey Concepts Preserved\n- Cells contain organelles with specialized jobs.\n- The nucleus stores DNA and helps control cell activities.\n- Mitochondria release energy from food.\n- Ribosomes build proteins.\n- The cell membrane controls what enters and leaves the cell."
+    }
+  },
+  {
+    "source_id": "z_cells_transport_001",
+    "topic": "cells",
+    "grade_band": "middle_school",
+    "source_text": "Cells must move materials in and out through the cell membrane. Diffusion is the movement of particles from an area of higher concentration to an area of lower concentration. Osmosis is the diffusion of water across a membrane. These processes do not require the cell to use energy. Moving materials this way helps cells maintain balance and carry out life processes.",
+    "must_keep_facts": [
+      "Cells move materials in and out through the cell membrane.",
+      "Diffusion moves particles from higher concentration to lower concentration.",
+      "Osmosis is the diffusion of water across a membrane.",
+      "These processes do not require the cell to use energy.",
+      "Diffusion and osmosis help cells maintain balance and life processes."
+    ],
+    "rewrites": {
+      "below": "Cells move materials in and out through the cell membrane. Diffusion happens when particles move from a place with more particles to a place with fewer particles. Osmosis is the diffusion of water across a membrane. The cell does not need to use energy for these processes. Diffusion and osmosis help cells stay balanced and do important life processes.\n\nKey Concepts Preserved\n- Cells move materials through the cell membrane.\n- Diffusion moves particles from higher to lower concentration.\n- Osmosis is water moving across a membrane.\n- These processes do not need energy.\n- They help cells stay balanced.",
+      "on": "Cells move materials in and out through the cell membrane. Diffusion is the movement of particles from an area of higher concentration to an area of lower concentration. Osmosis is the diffusion of water across a membrane. These processes do not require the cell to use energy. By moving materials in these ways, cells can maintain balance and carry out important life processes.\n\nKey Concepts Preserved\n- Cells move materials through the membrane.\n- Diffusion moves particles from high to low concentration.\n- Osmosis is the diffusion of water.\n- These processes do not require energy.\n- They help cells maintain balance.",
+      "above": "Cells move materials in and out through the cell membrane, and two important transport processes are diffusion and osmosis. Diffusion is the movement of particles from an area of higher concentration to an area of lower concentration, while osmosis is the diffusion of water across a membrane. Because these forms of transport do not require the cell to use energy, they are efficient ways for cells to maintain balance and carry out life processes.\n\nKey Concepts Preserved\n- Cells move materials through the cell membrane.\n- Diffusion moves particles from higher to lower concentration.\n- Osmosis is the diffusion of water across a membrane.\n- These processes do not require energy.\n- They help cells maintain balance and life processes."
+    }
+  }
+]

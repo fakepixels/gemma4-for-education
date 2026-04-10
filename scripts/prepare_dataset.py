@@ -7,6 +7,19 @@ from pathlib import Path
 
 from gemma4_classroom.data import expand_seed_examples, load_seed_examples, write_jsonl
 
+DEFAULT_VAL_SOURCE_IDS = [
+    "food_webs_001",
+    "forces_motion_001",
+    "genetics_001",
+]
+
+DEFAULT_TEST_SOURCE_IDS = [
+    "atoms_molecules_001",
+    "cells_001",
+    "ecosystems_001",
+    "electric_circuits_001",
+]
+
 
 def split_by_source(rows: list[dict], val_source_ids: set[str], test_source_ids: set[str]) -> tuple[list[dict], list[dict], list[dict]]:
     train, val, test = [], [], []
@@ -73,6 +86,12 @@ def choose_split_source_ids(source_ids: list[str], requested: list[str] | None, 
     return rotated[:target_count]
 
 
+def default_split_source_ids(available_ids: list[str], preferred_ids: list[str]) -> list[str]:
+    available = set(available_ids)
+    selected = [source_id for source_id in preferred_ids if source_id in available]
+    return selected
+
+
 def main() -> None:
     args = parse_args()
     output_dir = Path(args.output_dir)
@@ -82,9 +101,11 @@ def main() -> None:
     seeds, source_names = load_all_seed_examples(source_files)
     expanded = expand_seed_examples(seeds)
     source_ids = sorted({row["source_id"] for row in expanded})
-    test_source_ids = choose_split_source_ids(source_ids, args.test_source_id, args.test_fraction, fallback_offset=0)
+    requested_test_ids = args.test_source_id or default_split_source_ids(source_ids, DEFAULT_TEST_SOURCE_IDS)
+    test_source_ids = choose_split_source_ids(source_ids, requested_test_ids, args.test_fraction, fallback_offset=0)
     remaining_ids = [source_id for source_id in source_ids if source_id not in set(test_source_ids)]
-    val_source_ids = choose_split_source_ids(remaining_ids, args.val_source_id, args.val_fraction, fallback_offset=1)
+    requested_val_ids = args.val_source_id or default_split_source_ids(remaining_ids, DEFAULT_VAL_SOURCE_IDS)
+    val_source_ids = choose_split_source_ids(remaining_ids, requested_val_ids, args.val_fraction, fallback_offset=1)
     train, val, test = split_by_source(
         expanded,
         val_source_ids=set(val_source_ids),

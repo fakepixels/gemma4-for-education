@@ -17,8 +17,41 @@ SYSTEM_PROMPT = dedent(
 ).strip()
 
 
+def level_guidance(target_level: str) -> str:
+    if target_level == "below":
+        return dedent(
+            """
+            Reading-level guidance:
+            - Use short, direct sentences.
+            - Prefer common everyday words when possible.
+            - Explain hard science words in simple language.
+            - Keep the structure highly clear and supportive.
+            """
+        ).strip()
+    if target_level == "on":
+        return dedent(
+            """
+            Reading-level guidance:
+            - Use medium-length sentences.
+            - Keep the explanation clear but still academic.
+            - Use science vocabulary when needed, but avoid unnecessary complexity.
+            - Add enough context for a typical middle school reader to follow the idea.
+            """
+        ).strip()
+    return dedent(
+        """
+        Reading-level guidance:
+        - Use more precise academic vocabulary.
+        - Use longer, more connected sentences when helpful.
+        - Preserve nuance and relationships between ideas.
+        - Sound challenging but still clear for a strong middle school reader.
+        """
+    ).strip()
+
+
 def build_instruction(source_text: str, target_level: str, must_keep_facts: list[str]) -> str:
     facts_block = "\n".join(f"- {fact}" for fact in must_keep_facts)
+    guidance_block = level_guidance(target_level)
     return dedent(
         f"""
         Adapt this middle school science lesson for the target reading level: {target_level}.
@@ -28,6 +61,8 @@ def build_instruction(source_text: str, target_level: str, must_keep_facts: list
 
         Facts that must stay true:
         {facts_block}
+
+        {guidance_block}
 
         Output requirements:
         - Preserve all required facts.
