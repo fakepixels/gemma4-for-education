@@ -6,6 +6,11 @@ import json
 from pathlib import Path
 from typing import Any
 
+try:
+    import unsloth  # type: ignore  # noqa: F401
+except ImportError:
+    unsloth = None  # type: ignore
+
 from datasets import load_dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
@@ -79,7 +84,7 @@ def get_model_device(model) -> torch.device:
 
 
 def generate_text(model, tokenizer, prompt: str, max_new_tokens: int, temperature: float, top_p: float) -> str:
-    encoded = tokenizer(prompt, return_tensors="pt").to(get_model_device(model))
+    encoded = tokenizer(text=prompt, return_tensors="pt").to(get_model_device(model))
     output = model.generate(
         **encoded,
         max_new_tokens=max_new_tokens,
