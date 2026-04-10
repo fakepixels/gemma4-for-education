@@ -289,11 +289,3 @@ This project is designed for a competition submission, so the key claim has to s
 > Tuned Gemma 4 preserves science facts better and controls reading level more reliably than base Gemma 4 on classroom adaptation tasks.
 
 The benchmark is built around that claim instead of trying to prove the model can solve education in one repo.
-
-## Suggested next steps
-
-1. Expand the source corpus to 50 to 200 middle school science passages.
-2. Replace part of the seed rewrites with teacher-reviewed adaptations.
-3. Run a first LoRA training job on Gemma 4 E2B or E4B.
-4. Compare base vs tuned on a fixed held-out set.
-5. Use the strongest examples in the Kaggle writeup and demo video instead of asking the benchmark to be charismatic on its own.
