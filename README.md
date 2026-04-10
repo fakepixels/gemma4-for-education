@@ -11,6 +11,32 @@ The model returns a structured response with two sections:
 
 The demo app calls the tuned model three times to generate `below`, `on`, and `above` versions of the same lesson. One lesson in, three classroom-ready drafts out.
 
+## Benchmark snapshot
+
+The current held-out benchmark is the part where this stops being a nice idea and starts being evidence.
+
+| Metric | Base Gemma 4 | Tuned Gemma 4 | Delta |
+|---|---:|---:|---:|
+| Avg fact coverage | 0.417 | 1.000 | +0.583 |
+| Avg teacher usefulness | 0.408 | 0.967 | +0.559 |
+| Within target band rate | 0.417 | 0.833 | +0.416 |
+
+This benchmark uses the project's science-aware classroom rubric on a fixed held-out set. The tuned model is materially better at staying factual, following the output contract, and landing in the requested reading band.
+
+Per-level, the story is even clearer:
+
+| Level | Base usefulness | Tuned usefulness | What changed |
+|---|---:|---:|---|
+| `below` | 0.725 | 0.900 | Better fact preservation, but still the messiest level |
+| `on` | 0.000 | 1.000 | Biggest win: tuned becomes reliably classroom-usable |
+| `above` | 0.500 | 1.000 | Strong gain in completeness and structure-following |
+
+For the full writeup and qualitative examples, see:
+
+- [`docs/kaggle_benchmark_section_polished.md`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/docs/kaggle_benchmark_section_polished.md)
+- [`docs/qualitative_examples.md`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/docs/qualitative_examples.md)
+- [`docs/benchmark_appendix.md`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/docs/benchmark_appendix.md)
+
 ## Why this project
 
 Teachers in low-bandwidth classrooms already have enough problems. "Rewrite this lesson for three reading levels without breaking the science" should not need to be one of them.
