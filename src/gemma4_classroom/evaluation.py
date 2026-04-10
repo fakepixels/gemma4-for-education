@@ -27,6 +27,13 @@ def extract_key_concepts(text: str) -> list[str]:
     return [line for line in lines if line]
 
 
+def extract_student_facing_text(text: str) -> str:
+    marker = "Key Concepts Preserved"
+    if marker not in text:
+        return text.strip()
+    return text.split(marker, 1)[0].strip()
+
+
 def fact_coverage_score(must_keep_facts: list[str], output_text: str) -> float:
     lowered = output_text.lower()
     hits = 0
@@ -48,7 +55,8 @@ def teacher_usefulness_proxy(fact_coverage: float, within_target_band: bool, out
 
 
 def score_output(source_id: str, target_level: str, must_keep_facts: list[str], output_text: str) -> ExampleScore:
-    level_metrics = estimate_level_alignment(output_text, target_level)
+    student_facing_text = extract_student_facing_text(output_text)
+    level_metrics = estimate_level_alignment(student_facing_text, target_level)
     fact_coverage = fact_coverage_score(must_keep_facts, output_text)
     usefulness = teacher_usefulness_proxy(
         fact_coverage,
