@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
 
 from datasets import load_dataset
@@ -34,6 +35,40 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def training_args_from_config(cfg: dict) -> TrainingArguments:
+    training_cfg = cfg["training"]
+    optional_args = {
+        "per_device_eval_batch_size": training_cfg.get("per_device_eval_batch_size"),
+        "bf16": training_cfg.get("bf16"),
+        "fp16": training_cfg.get("fp16"),
+        "optim": training_cfg.get("optim"),
+        "max_grad_norm": training_cfg.get("max_grad_norm"),
+        "save_total_limit": training_cfg.get("save_total_limit"),
+        "load_best_model_at_end": training_cfg.get("load_best_model_at_end"),
+        "metric_for_best_model": training_cfg.get("metric_for_best_model"),
+        "greater_is_better": training_cfg.get("greater_is_better"),
+    }
+    filtered_optional_args = {key: value for key, value in optional_args.items() if value is not None}
+
+    return TrainingArguments(
+        output_dir=training_cfg["output_dir"],
+        per_device_train_batch_size=training_cfg["per_device_train_batch_size"],
+        gradient_accumulation_steps=training_cfg["gradient_accumulation_steps"],
+        warmup_steps=training_cfg["warmup_steps"],
+        num_train_epochs=training_cfg["num_train_epochs"],
+        learning_rate=training_cfg["learning_rate"],
+        logging_steps=training_cfg["logging_steps"],
+        evaluation_strategy="steps",
+        eval_steps=training_cfg["eval_steps"],
+        save_steps=training_cfg["save_steps"],
+        weight_decay=training_cfg["weight_decay"],
+        lr_scheduler_type=training_cfg["lr_scheduler_type"],
+        seed=training_cfg["seed"],
+        report_to=training_cfg["report_to"],
+        **filtered_optional_args,
+    )
+
+
 def main() -> None:
     args = parse_args()
     cfg = load_yaml(args.config)
@@ -59,22 +94,7 @@ def main() -> None:
         use_gradient_checkpointing="unsloth",
     )
 
-    training_args = TrainingArguments(
-        output_dir=cfg["training"]["output_dir"],
-        per_device_train_batch_size=cfg["training"]["per_device_train_batch_size"],
-        gradient_accumulation_steps=cfg["training"]["gradient_accumulation_steps"],
-        warmup_steps=cfg["training"]["warmup_steps"],
-        num_train_epochs=cfg["training"]["num_train_epochs"],
-        learning_rate=cfg["training"]["learning_rate"],
-        logging_steps=cfg["training"]["logging_steps"],
-        evaluation_strategy="steps",
-        eval_steps=cfg["training"]["eval_steps"],
-        save_steps=cfg["training"]["save_steps"],
-        weight_decay=cfg["training"]["weight_decay"],
-        lr_scheduler_type=cfg["training"]["lr_scheduler_type"],
-        seed=cfg["training"]["seed"],
-        report_to=cfg["training"]["report_to"],
-    )
+    training_args = training_args_from_config(cfg)
 
     try:
         from trl import SFTTrainer  # type: ignore
@@ -103,6 +123,8 @@ def main() -> None:
         "train_examples": len(train_ds),
         "val_examples": len(val_ds),
         "task": cfg["metadata"]["task_name"],
+        "gpu_target": cfg["metadata"].get("gpu_target"),
+        "cuda_visible_devices": os.environ.get("CUDA_VISIBLE_DEVICES"),
     }
     with (adapter_dir / "run_metadata.json").open("w", encoding="utf-8") as handle:
         json.dump(metadata, handle, indent=2)

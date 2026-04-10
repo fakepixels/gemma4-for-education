@@ -76,7 +76,7 @@ For the first real CUDA run, use:
 bash scripts/first_cuda_run.sh
 ```
 
-That script uses [`configs/train.first_run.yaml`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/configs/train.first_run.yaml) and [`configs/eval.first_run.yaml`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/configs/eval.first_run.yaml).
+That script uses [`configs/train.first_run.yaml`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/configs/train.first_run.yaml) and [`configs/eval.first_run.yaml`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/configs/eval.first_run.yaml). The first-run profile is tuned for a **single NVIDIA L4 24 GB GPU**.
 
 ## 4. Evaluate base vs tuned
 
@@ -160,6 +160,8 @@ PYTHONPATH=src python scripts/summarize_eval.py \
 ```
 
 The resulting Markdown file is designed to drop directly into the Kaggle writeup draft.
+
+There is also a ready-to-fill benchmark section draft at [`docs/kaggle_benchmark_section_draft.md`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/docs/kaggle_benchmark_section_draft.md).
 
 ## Evaluation philosophy
 

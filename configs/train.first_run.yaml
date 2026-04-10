@@ -2,7 +2,7 @@ model:
   base_model_id: "google/gemma-4-4b-it"
   max_seq_length: 2048
   load_in_4bit: true
-  dtype: null
+  dtype: "bfloat16"
 
 data:
   train_path: "data/processed/train.jsonl"
@@ -26,16 +26,25 @@ lora:
 training:
   output_dir: "artifacts/checkpoints/first-run"
   adapter_output_dir: "artifacts/adapters/first-run"
-  per_device_train_batch_size: 2
-  gradient_accumulation_steps: 8
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 4
+  gradient_accumulation_steps: 4
   warmup_steps: 10
-  num_train_epochs: 6
-  learning_rate: 2.0e-4
+  num_train_epochs: 4
+  learning_rate: 1.5e-4
   logging_steps: 1
   eval_steps: 5
   save_steps: 5
+  save_total_limit: 2
   weight_decay: 0.01
   lr_scheduler_type: "cosine"
+  bf16: true
+  fp16: false
+  optim: "adamw_torch"
+  max_grad_norm: 0.3
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+  greater_is_better: false
   seed: 42
   report_to: "none"
 
@@ -45,3 +54,4 @@ generation:
 metadata:
   task_name: "gemma4_classroom_adaptation_first_run"
   project_story: "Low-bandwidth middle school science lesson adaptation"
+  gpu_target: "nvidia-l4-24gb-single-gpu"

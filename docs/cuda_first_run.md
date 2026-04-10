@@ -5,9 +5,11 @@ This is the shortest path to a real first fine-tuning pass on a Linux CUDA machi
 ## Recommended box
 
 - Linux
-- NVIDIA GPU with at least 24 GB VRAM for comfortable 4B-class experimentation
+- Single NVIDIA L4 24 GB GPU
 - Python 3.10 to 3.12
 - CUDA drivers working before setup begins
+
+This repo's first-run config is now explicitly tuned for **one L4 24 GB GPU** and a **Gemma 4 4B instruction model with 4-bit LoRA fine-tuning**.
 
 ## 1. Clone and enter the repo
 
@@ -40,7 +42,7 @@ This will:
 
 - validate raw data
 - rebuild processed splits
-- train with `configs/train.first_run.yaml`
+- train with `configs/train.first_run.yaml` tuned for a single L4 24 GB GPU
 - evaluate with `configs/eval.first_run.yaml`
 - write a Markdown summary for benchmarks
 
@@ -58,3 +60,11 @@ Do not optimize for maximum benchmark size on the first pass. Optimize for:
 - the adapter loading cleanly
 - a visible improvement over the base model on held-out examples
 - one or two high-quality qualitative examples for the Kaggle story
+
+## L4-specific assumptions baked into the config
+
+- 4-bit loading enabled
+- `bfloat16` compute
+- effective train batch size of 16 via `per_device_train_batch_size=4` and `gradient_accumulation_steps=4`
+- moderate LoRA rank and four training epochs for a stable first pass
+- checkpoint retention capped to avoid unnecessary disk growth
