@@ -6,6 +6,8 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+from gemma4_classroom.prompting import LEVEL_DEFINITIONS, LEVEL_NAMES
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate a detailed benchmark appendix from eval JSON.")
@@ -35,6 +37,10 @@ def level_summary(rows: list[dict[str, Any]]) -> dict[str, float]:
         "band": round(sum(row["within_target_band"] for row in rows) / count, 3),
         "control": round(sum(row["level_control_score"] for row in rows) / count, 3),
     }
+
+
+def display_level(level: str) -> str:
+    return LEVEL_NAMES[level]
 
 
 def build_pair_rows(report: dict[str, Any]) -> list[dict[str, Any]]:
@@ -78,6 +84,12 @@ def main() -> None:
         "",
         "This appendix expands the top-line benchmark with per-level results and per-example deltas.",
         "",
+        "## Level Definitions",
+        "",
+        f"- `Level 1`: {LEVEL_DEFINITIONS['below']}",
+        f"- `Level 2`: {LEVEL_DEFINITIONS['on']}",
+        f"- `Level 3`: {LEVEL_DEFINITIONS['above']}",
+        "",
     ]
 
     base_summary = report["base"]["summary"]
@@ -104,7 +116,7 @@ def main() -> None:
         tuned_level = level_summary(tuned_rows)
         lines.extend(
             [
-                f"### `{level}`",
+                f"### `{display_level(level)}`",
                 "",
                 "| Metric | Base | Tuned | Delta |",
                 "|---|---:|---:|---:|",
@@ -124,8 +136,8 @@ def main() -> None:
             "",
             f"- Blank base outputs on the held-out set: `{blank_base_outputs}` / `{len(pair_rows)}`",
             f"- Blank tuned outputs on the held-out set: `{blank_tuned_outputs}` / `{len(pair_rows)}`",
-            "- The biggest gains are reliability and structure-following at `on` and `above`.",
-            "- The main remaining weakness is `below`, where tuned preserves facts well but can stay too close to the original wording.",
+            "- The biggest gains are reliability and structure-following at `Level 2` and `Level 3`.",
+            "- The main remaining weakness is `Level 1`, where tuned preserves facts well but can stay too close to the original wording.",
             "",
         ]
     )
@@ -142,7 +154,7 @@ def main() -> None:
     )
     for row in strongest_wins:
         lines.append(
-            f"| `{row['source_id']}` / `{row['target_level']}` | {row['base']['fact_coverage']:.3f} -> {row['tuned']['fact_coverage']:.3f} | {row['base']['teacher_usefulness']:.3f} -> {row['tuned']['teacher_usefulness']:.3f} | `{row['base']['within_target_band']}` -> `{row['tuned']['within_target_band']}` |"
+            f"| `{row['source_id']}` / `{display_level(row['target_level'])}` | {row['base']['fact_coverage']:.3f} -> {row['tuned']['fact_coverage']:.3f} | {row['base']['teacher_usefulness']:.3f} -> {row['tuned']['teacher_usefulness']:.3f} | `{row['base']['within_target_band']}` -> `{row['tuned']['within_target_band']}` |"
         )
     lines.append("")
 
@@ -156,7 +168,7 @@ def main() -> None:
         )
         for row in regressions:
             lines.append(
-                f"| `{row['source_id']}` / `{row['target_level']}` | {row['base']['fact_coverage']:.3f} -> {row['tuned']['fact_coverage']:.3f} | {row['base']['teacher_usefulness']:.3f} -> {row['tuned']['teacher_usefulness']:.3f} | `{row['base']['within_target_band']}` -> `{row['tuned']['within_target_band']}` |"
+                f"| `{row['source_id']}` / `{display_level(row['target_level'])}` | {row['base']['fact_coverage']:.3f} -> {row['tuned']['fact_coverage']:.3f} | {row['base']['teacher_usefulness']:.3f} -> {row['tuned']['teacher_usefulness']:.3f} | `{row['base']['within_target_band']}` -> `{row['tuned']['within_target_band']}` |"
             )
         lines.append("")
 
@@ -169,7 +181,7 @@ def main() -> None:
     )
     for row in sorted(pair_rows, key=lambda row: (row["source_id"], level_order.index(row["target_level"]))):
         lines.append(
-            f"| `{row['source_id']}` | `{row['target_level']}` | {row['base']['fact_coverage']:.3f} | {row['tuned']['fact_coverage']:.3f} | {row['base']['teacher_usefulness']:.3f} | {row['tuned']['teacher_usefulness']:.3f} | `{row['base']['within_target_band']}` | `{row['tuned']['within_target_band']}` | {row['teacher_usefulness_delta']:+.3f} |"
+            f"| `{row['source_id']}` | `{display_level(row['target_level'])}` | {row['base']['fact_coverage']:.3f} | {row['tuned']['fact_coverage']:.3f} | {row['base']['teacher_usefulness']:.3f} | {row['tuned']['teacher_usefulness']:.3f} | `{row['base']['within_target_band']}` | `{row['tuned']['within_target_band']}` | {row['teacher_usefulness_delta']:+.3f} |"
         )
 
     output_path = Path(args.output)

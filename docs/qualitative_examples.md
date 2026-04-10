@@ -4,7 +4,7 @@ Use these examples in the Kaggle writeup, demo narration, or video captions. The
 
 ## Best examples
 
-### 1. `electric_circuits_001` at `on`
+### 1. `electric_circuits_001` at `Level 2`
 
 Why it is strong:
 
@@ -25,7 +25,7 @@ Suggested narration:
 
 > On the same prompt, the base model did not return a classroom-ready adaptation, while the tuned model produced a complete lesson and preserved every required circuit fact.
 
-### 2. `cells_001` at `on`
+### 2. `cells_001` at `Level 2`
 
 Why it is strong:
 
@@ -46,7 +46,7 @@ Suggested narration:
 
 > The improvement carried across topics. On cells, the tuned model preserved the biology facts and returned the expected teacher workflow format.
 
-### 3. `atoms_molecules_001` at `on`
+### 3. `atoms_molecules_001` at `Level 2`
 
 Why it is strong:
 
@@ -69,7 +69,7 @@ Suggested narration:
 
 ## Useful supporting example
 
-### `cells_001` at `below`
+### `cells_001` at `Level 1`
 
 Why it matters:
 
@@ -90,7 +90,7 @@ What happened:
 
 These are not ideal hero examples for the writeup, but they are useful internally:
 
-- `atoms_molecules_001` at `below`
-- `ecosystems_001` at `below`
+- `atoms_molecules_001` at `Level 1`
+- `ecosystems_001` at `Level 1`
 
-In both cases, the base model simplified more aggressively, while the tuned model stayed closer to the source wording. These are good targets for the next small data pass focused on stronger `below`-level style separation.
+In both cases, the base model simplified more aggressively, while the tuned model stayed closer to the source wording. These are good targets for the next small data pass focused on stronger `Level 1` style separation.

@@ -6,7 +6,7 @@ import gradio as gr
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from gemma4_classroom.output_format import extract_key_concepts, extract_model_completion, extract_student_facing_text
-from gemma4_classroom.prompting import build_inference_prompt
+from gemma4_classroom.prompting import build_inference_prompt, level_definition
 
 
 def parse_args() -> argparse.Namespace:
@@ -66,7 +66,11 @@ def build_app(model, tokenizer) -> gr.Blocks:
         gr.Markdown(
             """
             # Gemma 4 Classroom Adaptation
-            Paste one middle school science lesson and generate three reading-level versions.
+            Paste one middle school science lesson and generate three versions:
+
+            - **Level 1:** the most supported version with simpler wording and shorter sentences
+            - **Level 2:** the grade-level version for a typical middle school reader
+            - **Level 3:** the most challenging version with more nuance and richer vocabulary
 
             This demo is designed for low-bandwidth classroom preparation. The teacher reviews and approves every output.
             """
@@ -84,9 +88,9 @@ def build_app(model, tokenizer) -> gr.Blocks:
             )
         generate_button = gr.Button("Generate three versions")
         with gr.Row():
-            below = gr.Textbox(label="Below-level version", lines=14)
-            on = gr.Textbox(label="On-level version", lines=14)
-            above = gr.Textbox(label="Above-level version", lines=14)
+            below = gr.Textbox(label=f"Level 1 ({level_definition('below')})", lines=14)
+            on = gr.Textbox(label=f"Level 2 ({level_definition('on')})", lines=14)
+            above = gr.Textbox(label=f"Level 3 ({level_definition('above')})", lines=14)
         teacher_note = gr.Textbox(label="Teacher note", lines=8)
         generate_button.click(
             fn=generate_versions,

@@ -4,7 +4,13 @@
 
 In many classrooms, one teacher has to support students reading at very different levels from the same lesson. That problem is especially difficult in science, where simplifying too much can distort the content, while keeping the original wording can leave some students behind. It becomes even harder in low-connectivity settings, where cloud-first tools may be slow, unreliable, or unsuitable for the classroom workflow.
 
-Our project focuses on one narrow, practical use case: a teacher pastes one middle school science lesson, and the system generates `below`, `on`, and `above` reading-level versions while preserving the same core science facts. The teacher remains fully in control and reviews every output.
+Our project focuses on one narrow, practical use case: a teacher pastes one middle school science lesson, and the system generates three versions while preserving the same core science facts:
+
+- `Level 1`: the most supported version, with simpler wording and shorter sentences
+- `Level 2`: the grade-level version for a typical middle school reader
+- `Level 3`: the most challenging version, with richer vocabulary and more connected reasoning
+
+The teacher remains fully in control and reviews every output.
 
 ## Why Gemma 4
 
@@ -12,7 +18,7 @@ Gemma 4 was a strong fit for this project because the challenge is not open-ende
 
 ## Method
 
-We fine-tuned `google/gemma-4-E4B-it` using **Unsloth LoRA**. The training task was single-target rewriting: each example contained a source lesson, a target level label (`below`, `on`, or `above`), a list of must-keep facts, and a reference adaptation. We also standardized the output format into two sections:
+We fine-tuned `google/gemma-4-E4B-it` using **Unsloth LoRA**. The training task was single-target rewriting: each example contained a source lesson, a target level label, a list of must-keep facts, and a reference adaptation. The internal training labels are `below`, `on`, and `above`, which map to `Level 1`, `Level 2`, and `Level 3` in the product. We also standardized the output format into two sections:
 
 - `Adapted Lesson`
 - `Key Concepts Preserved`
@@ -56,24 +62,24 @@ These gains matter because the benchmark is tightly matched to the actual classr
 
 ## Qualitative Example
 
-One of the clearest held-out examples was `electric_circuits_001` at the `on` level. Under the same prompt, the base model failed to produce a usable adapted lesson. The tuned model returned a complete structured response, preserved all required circuit facts, and matched the requested classroom format.
+One of the clearest held-out examples was `electric_circuits_001` at `Level 2`. Under the same prompt, the base model failed to produce a usable adapted lesson. The tuned model returned a complete structured response, preserved all required circuit facts, and matched the requested classroom format.
 
-We saw similar behavior on held-out `on`-level examples such as `cells_001` and `atoms_molecules_001`. In these cases, the tuned model was more reliable at producing a classroom-ready output rather than an incomplete or malformed one.
+We saw similar behavior on held-out `Level 2` examples such as `cells_001` and `atoms_molecules_001`. In these cases, the tuned model was more reliable at producing a classroom-ready output rather than an incomplete or malformed one.
 
 ## Demo
 
 The demo is intentionally simple. A teacher pastes one science lesson and receives:
 
-- a below-level adapted lesson
-- an on-level adapted lesson
-- an above-level adapted lesson
+- a `Level 1` adapted lesson
+- a `Level 2` adapted lesson
+- a `Level 3` adapted lesson
 - a teacher note summarizing preserved concepts
 
 This supports the story we want to tell in the submission: one lesson becomes three usable versions quickly, without relying on a cloud-heavy workflow.
 
 ## Limitations and Next Steps
 
-Our strongest current gains are in reliability, structure-following, and factual preservation. The next improvement target is stronger stylistic separation at the level extremes, especially for some `below`-level examples where the base model still simplifies more aggressively. The next step is a focused data pass that sharpens low-level simplification and high-level enrichment without weakening factual control.
+Our strongest current gains are in reliability, structure-following, and factual preservation. The next improvement target is stronger stylistic separation at the level extremes, especially for some `Level 1` examples where the base model still simplifies more aggressively. The next step is a focused data pass that sharpens low-level simplification and high-level enrichment without weakening factual control.
 
 ## Impact
 

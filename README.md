@@ -9,7 +9,13 @@ The model returns a structured response with two sections:
 - `Adapted Lesson` for the student-facing rewrite
 - `Key Concepts Preserved` for a short teacher-facing fact check
 
-The demo app calls the tuned model three times to generate `below`, `on`, and `above` versions of the same lesson. One lesson in, three classroom-ready drafts out.
+The demo app calls the tuned model three times to generate `Level 1`, `Level 2`, and `Level 3` versions of the same lesson. One lesson in, three classroom-ready drafts out.
+
+Level definitions:
+
+- `Level 1`: the most supported version, with shorter sentences, simpler wording, and more scaffolding
+- `Level 2`: the grade-level version, written for a typical middle school reader
+- `Level 3`: the most challenging version, with stronger vocabulary and more connected reasoning
 
 ## Benchmark snapshot
 
@@ -27,9 +33,9 @@ Per-level, the story is even clearer:
 
 | Level | Base usefulness | Tuned usefulness | What changed |
 |---|---:|---:|---|
-| `below` | 0.725 | 0.900 | Better fact preservation, but still the messiest level |
-| `on` | 0.000 | 1.000 | Biggest win: tuned becomes reliably classroom-usable |
-| `above` | 0.500 | 1.000 | Strong gain in completeness and structure-following |
+| `Level 1` | 0.725 | 0.900 | Better fact preservation, but still the messiest level |
+| `Level 2` | 0.000 | 1.000 | Biggest win: tuned becomes reliably classroom-usable |
+| `Level 3` | 0.500 | 1.000 | Strong gain in completeness and structure-following |
 
 For the full writeup and qualitative examples, see:
 
@@ -39,9 +45,9 @@ For the full writeup and qualitative examples, see:
 
 ## Sanity-check examples
 
-Short answer: yes, the fine-tuned model is accurate on many held-out examples, especially when the task is "produce a complete, factual, on-level classroom rewrite." It is not perfect, and the weak spot is still `below` simplification.
+Short answer: yes, the fine-tuned model is accurate on many held-out examples, especially when the task is "produce a complete, factual, Level 2 classroom rewrite." It is not perfect, and the weak spot is still `Level 1` simplification.
 
-### Example: `electric_circuits_001` at `on`
+### Example: `electric_circuits_001` at `Level 2`
 
 Held-out facts:
 
@@ -77,9 +83,9 @@ Why this matters:
 - teacher usefulness: `0.0 -> 1.0`
 - within target band: `False -> True`
 
-### Honest caveat: `atoms_molecules_001` at `below`
+### Honest caveat: `atoms_molecules_001` at `Level 1`
 
-This is where the current fine-tune still needs work. The tuned model keeps all the science facts, but it stays closer to the source wording than the base model and misses the `below`-level simplification target.
+This is where the current fine-tune still needs work. The tuned model keeps all the science facts, but it stays closer to the source wording than the base model and misses the `Level 1` simplification target.
 
 Base model opening:
 
@@ -93,7 +99,7 @@ Tuned model opening:
 Atoms are the basic building blocks of matter. Each atom has a nucleus made of protons and neutrons, with electrons moving around the nucleus.
 ```
 
-Both are scientifically sound. The tuned version is more formal and less accessible for the `below` target, which is exactly why `below` is the next data pass.
+Both are scientifically sound. The tuned version is more formal and less accessible for the `Level 1` target, which is exactly why `Level 1` is the next data pass.
 
 ## Why this project
 
@@ -208,9 +214,9 @@ PYTHONPATH=src python scripts/run_demo.py \
 
 The demo accepts one science lesson and returns:
 
-- a below-level adapted lesson
-- an on-level adapted lesson
-- an above-level adapted lesson
+- a `Level 1` adapted lesson for students who need the most support
+- a `Level 2` adapted lesson for students reading at grade level
+- a `Level 3` adapted lesson for students ready for a more challenging version
 - a teacher note listing preserved key concepts
 
 The product idea is intentionally simple. No agent maze. No twelve-tab orchestration diagram. Just a teacher, one lesson, and three better starting points.

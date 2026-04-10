@@ -4,6 +4,18 @@ from textwrap import dedent
 
 from gemma4_classroom.output_format import ADAPTED_LESSON_HEADING, KEY_CONCEPTS_HEADING
 
+LEVEL_NAMES = {
+    "below": "Level 1",
+    "on": "Level 2",
+    "above": "Level 3",
+}
+
+LEVEL_DEFINITIONS = {
+    "below": "Level 1 is the most supported version: shorter sentences, simpler wording, and extra clarity.",
+    "on": "Level 2 is the grade-level version: clear middle school language with normal science vocabulary.",
+    "above": "Level 3 is the most challenging version: stronger vocabulary, more nuance, and more connected reasoning.",
+}
+
 SYSTEM_PROMPT = dedent(
     """
     You are an expert middle school science curriculum adapter.
@@ -53,12 +65,25 @@ def level_guidance(target_level: str) -> str:
     ).strip()
 
 
+def display_level_name(target_level: str) -> str:
+    return LEVEL_NAMES[target_level]
+
+
+def level_definition(target_level: str) -> str:
+    return LEVEL_DEFINITIONS[target_level]
+
+
 def build_instruction(source_text: str, target_level: str, must_keep_facts: list[str]) -> str:
     facts_block = "\n".join(f"- {fact}" for fact in must_keep_facts)
     guidance_block = level_guidance(target_level)
+    level_name = display_level_name(target_level)
+    level_meaning = level_definition(target_level)
     return dedent(
         f"""
-        Adapt this middle school science lesson for the target reading level: {target_level}.
+        Adapt this middle school science lesson for the target reading level: {level_name}.
+
+        Level definition:
+        {level_meaning}
 
         Source lesson:
         {source_text}

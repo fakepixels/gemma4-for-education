@@ -1,6 +1,10 @@
 # Benchmark Results
 
-To test whether post-training improved the exact classroom workflow we cared about, we compared **base Gemma 4** with our **Unsloth fine-tuned Gemma 4 adapter** on a held-out set of middle school science passages. Each example asked the model to adapt one lesson for a target reading level: `below`, `on`, or `above`.
+To test whether post-training improved the exact classroom workflow we cared about, we compared **base Gemma 4** with our **Unsloth fine-tuned Gemma 4 adapter** on a held-out set of middle school science passages. Each example asked the model to adapt one lesson for one of three reading levels:
+
+- `Level 1`: the most supported version, with simpler wording and shorter sentences
+- `Level 2`: the grade-level version for a typical middle school reader
+- `Level 3`: the most challenging version, with richer vocabulary and more connected reasoning
 
 Our evaluation focused on three criteria:
 
@@ -20,12 +24,12 @@ These gains are meaningful because our project is intentionally narrow. We are n
 
 ## Qualitative Example
 
-One of the clearest held-out examples was **`electric_circuits_001` at the `on` level**. Under the same prompt, the base model failed to produce a usable adapted lesson. The tuned model returned a complete structured response, preserved all five required circuit facts, and matched the requested classroom format:
+One of the clearest held-out examples was **`electric_circuits_001` at `Level 2`**. Under the same prompt, the base model failed to produce a usable adapted lesson. The tuned model returned a complete structured response, preserved all five required circuit facts, and matched the requested classroom format:
 
 - an adapted student-facing lesson
 - a teacher-facing “Key Concepts Preserved” section
 
-We saw the same pattern on other held-out `on`-level examples, including **`cells_001`** and **`atoms_molecules_001`**. In each case, the tuned model was more reliable at producing a complete classroom-ready output while preserving the science content.
+We saw the same pattern on other held-out `Level 2` examples, including **`cells_001`** and **`atoms_molecules_001`**. In each case, the tuned model was more reliable at producing a complete classroom-ready output while preserving the science content.
 
 ## Why This Supports The Project Story
 

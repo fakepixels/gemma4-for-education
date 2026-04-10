@@ -11,7 +11,8 @@ def test_train_text_contains_required_sections():
     )
     assert "Key Concepts Preserved" in text
     assert "Adapted Lesson" in text
-    assert "target reading level: below" in text
+    assert "target reading level: Level 1" in text
+    assert "Level 1 is the most supported version" in text
 
 
 def test_inference_prompt_ends_with_model_turn():
