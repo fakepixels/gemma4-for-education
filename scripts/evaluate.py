@@ -17,6 +17,7 @@ import torch
 
 from gemma4_classroom.config import load_yaml
 from gemma4_classroom.evaluation import score_table
+from gemma4_classroom.output_format import extract_model_completion
 from gemma4_classroom.prompting import build_inference_prompt
 
 
@@ -94,8 +95,8 @@ def generate_text(model, tokenizer, prompt: str, max_new_tokens: int, temperatur
     )
     decoded = tokenizer.decode(output[0], skip_special_tokens=True)
     if prompt in decoded:
-        return decoded.split(prompt, 1)[1].strip()
-    return decoded.strip()
+        decoded = decoded.split(prompt, 1)[1].strip()
+    return extract_model_completion(decoded)
 
 
 def run_eval_rows(model, tokenizer, dataset, generation_cfg: dict[str, Any]) -> list[dict[str, Any]]:

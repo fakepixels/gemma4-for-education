@@ -15,6 +15,9 @@ class ExampleScore:
     fact_coverage: float
     readability_grade: float
     avg_words_per_sentence: float
+    level_control_score: float
+    science_term_count: float
+    complex_non_domain_ratio: float
     within_target_band: bool
     teacher_usefulness: float
 def fact_coverage_score(must_keep_facts: list[str], output_text: str) -> float:
@@ -52,6 +55,9 @@ def score_output(source_id: str, target_level: str, must_keep_facts: list[str], 
         fact_coverage=fact_coverage,
         readability_grade=float(level_metrics["readability_grade"]),
         avg_words_per_sentence=float(level_metrics["avg_words_per_sentence"]),
+        level_control_score=float(level_metrics["level_control_score"]),
+        science_term_count=float(level_metrics["science_term_count"]),
+        complex_non_domain_ratio=float(level_metrics["complex_non_domain_ratio"]),
         within_target_band=bool(level_metrics["within_target_band"]),
         teacher_usefulness=usefulness,
     )

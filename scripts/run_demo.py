@@ -5,7 +5,7 @@ import argparse
 import gradio as gr
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from gemma4_classroom.output_format import extract_key_concepts, extract_student_facing_text
+from gemma4_classroom.output_format import extract_key_concepts, extract_model_completion, extract_student_facing_text
 from gemma4_classroom.prompting import build_inference_prompt
 
 
@@ -32,8 +32,8 @@ def generate_text(model, tokenizer, prompt: str) -> str:
     output = model.generate(**encoded, max_new_tokens=512, temperature=0.2, top_p=0.9, do_sample=True)
     decoded = tokenizer.decode(output[0], skip_special_tokens=True)
     if prompt in decoded:
-        return decoded.split(prompt, 1)[1].strip()
-    return decoded.strip()
+        decoded = decoded.split(prompt, 1)[1].strip()
+    return extract_model_completion(decoded)
 
 
 def extract_teacher_note(outputs: dict[str, str]) -> str:

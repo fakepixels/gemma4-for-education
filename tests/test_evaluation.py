@@ -1,5 +1,10 @@
 from gemma4_classroom.evaluation import score_output
-from gemma4_classroom.output_format import extract_student_facing_text, normalize_model_output, parse_model_output
+from gemma4_classroom.output_format import (
+    extract_model_completion,
+    extract_student_facing_text,
+    normalize_model_output,
+    parse_model_output,
+)
 
 
 def test_extract_student_facing_text_ignores_key_concepts_section():
@@ -22,6 +27,15 @@ def test_normalize_model_output_adds_structured_headings():
     assert parsed.key_concepts == ["Plants use sunlight."]
 
 
+def test_extract_model_completion_from_chat_transcript():
+    transcript = (
+        "<start_of_turn>system\nRules\n<end_of_turn>\n"
+        "<start_of_turn>user\nPrompt\n<end_of_turn>\n"
+        "<start_of_turn>model\nAdapted Lesson\nShort text.\n\nKey Concepts Preserved\n- Fact.\n<end_of_turn>"
+    )
+    assert extract_model_completion(transcript).startswith("Adapted Lesson")
+
+
 def test_score_output_uses_body_for_readability_but_keeps_teacher_note_bonus():
     output_text = (
         "Adapted Lesson\n"
@@ -41,3 +55,4 @@ def test_score_output_uses_body_for_readability_but_keeps_teacher_note_bonus():
     )
     assert score.within_target_band is True
     assert score.teacher_usefulness > 0.0
+    assert score.level_control_score > 0.6

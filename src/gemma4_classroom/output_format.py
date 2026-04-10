@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 
 ADAPTED_LESSON_HEADING = "Adapted Lesson"
 KEY_CONCEPTS_HEADING = "Key Concepts Preserved"
+MODEL_TURN_RE = re.compile(r"<start_of_turn>model\s*(.*?)(?:<end_of_turn>|$)", re.S)
 
 
 @dataclass
@@ -29,7 +31,7 @@ def _split_key_concepts_tail(tail: str) -> list[str]:
 
 
 def parse_model_output(text: str) -> ParsedOutput:
-    cleaned = text.strip()
+    cleaned = extract_model_completion(text).strip()
     if not cleaned:
         return ParsedOutput(adapted_lesson="", key_concepts=[])
 
@@ -49,6 +51,14 @@ def parse_model_output(text: str) -> ParsedOutput:
         )
 
     return ParsedOutput(adapted_lesson=cleaned, key_concepts=[])
+
+
+def extract_model_completion(text: str) -> str:
+    cleaned = text.strip()
+    turns = MODEL_TURN_RE.findall(cleaned)
+    if turns:
+        return turns[-1].strip()
+    return cleaned
 
 
 def format_model_output(adapted_lesson: str, key_concepts: list[str]) -> str:

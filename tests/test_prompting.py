@@ -28,3 +28,12 @@ def test_inference_prompt_ends_with_model_turn():
 def test_readability_band_estimation():
     below = estimate_level_alignment("Plants make food. Animals eat plants.", "below")
     assert below["within_target_band"] is True
+
+
+def test_science_terms_do_not_automatically_break_below_band():
+    below = estimate_level_alignment(
+        "Cells have a membrane. The nucleus stores DNA. Mitochondria release energy from food.",
+        "below",
+    )
+    assert below["science_term_count"] >= 2
+    assert below["level_control_score"] >= 0.65
