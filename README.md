@@ -28,24 +28,21 @@ artifacts/                Checkpoints, adapters, and eval reports
 ### 1. Create a Python environment
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install --upgrade pip
-pip install -e ".[demo]"
+bash scripts/setup_local_env.sh
 ```
 
 For CUDA training, use a Linux GPU machine and install the training extras there:
 
 ```bash
-pip install -e ".[cuda_train,demo,dev]"
+bash scripts/setup_cuda_env.sh
 ```
+
+You can also use [`Makefile`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/Makefile) targets such as `make install-local`, `make install-cuda`, `make prepare-data`, and `make test`.
 
 ## 2. Build the dataset
 
 ```bash
-python scripts/prepare_dataset.py \
-  --source data/raw/science_adaptations_seed.json \
-  --output-dir data/processed
+PYTHONPATH=src python scripts/prepare_dataset.py --source data/raw --output-dir data/processed
 ```
 
 This creates:
@@ -60,7 +57,7 @@ By default, the script ingests every raw dataset JSON file in [`data/raw/`](/Use
 Validate raw files before training:
 
 ```bash
-python scripts/validate_dataset.py --source data/raw
+PYTHONPATH=src python scripts/validate_dataset.py --source data/raw
 ```
 
 ## 3. Fine-tune with Unsloth
@@ -68,15 +65,23 @@ python scripts/validate_dataset.py --source data/raw
 Edit [`configs/train.yaml`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/configs/train.yaml) for your GPU and model choice, then run:
 
 ```bash
-python scripts/train_unsloth.py --config configs/train.yaml
+PYTHONPATH=src python scripts/train_unsloth.py --config configs/train.yaml
 ```
 
 The default config is set up for a Gemma 4 E2B or E4B style workflow with LoRA/QLoRA and single-target rewriting.
 
+For the first real CUDA run, use:
+
+```bash
+bash scripts/first_cuda_run.sh
+```
+
+That script uses [`configs/train.first_run.yaml`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/configs/train.first_run.yaml) and [`configs/eval.first_run.yaml`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/configs/eval.first_run.yaml).
+
 ## 4. Evaluate base vs tuned
 
 ```bash
-python scripts/evaluate.py \
+PYTHONPATH=src python scripts/evaluate.py \
   --config configs/eval.yaml \
   --output artifacts/evals/baseline_vs_tuned.json
 ```
@@ -91,7 +96,7 @@ The evaluation script scores:
 ## 5. Launch the local demo
 
 ```bash
-python scripts/run_demo.py \
+PYTHONPATH=src python scripts/run_demo.py \
   --model-id google/gemma-4-4b-it \
   --adapter-path artifacts/adapters/latest
 ```
@@ -137,6 +142,24 @@ Recommended data workflow:
 2. Validate them with `scripts/validate_dataset.py`.
 3. Rebuild `data/processed/`.
 4. Keep train/val/test splits at the source level, not the rewrite level.
+
+## Environment files
+
+- [`/.env.example`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/.env.example) contains the expected local environment variables.
+- Copy it to `.env` on your own machine before running CUDA training.
+- The setup scripts automatically source `.env` if it exists.
+
+## First benchmark pass
+
+After the first CUDA run, create a compact benchmark summary with:
+
+```bash
+PYTHONPATH=src python scripts/summarize_eval.py \
+  --input artifacts/evals/first_run_eval.json \
+  --output artifacts/evals/first_run_summary.md
+```
+
+The resulting Markdown file is designed to drop directly into the Kaggle writeup draft.
 
 ## Evaluation philosophy
 
