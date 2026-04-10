@@ -10,6 +10,7 @@ def test_train_text_contains_required_sections():
         rewritten_text="The Sun warms water and some turns into vapor.\n\nKey Concepts Preserved\n- The Sun heats water.",
     )
     assert "Key Concepts Preserved" in text
+    assert "Adapted Lesson" in text
     assert "target reading level: below" in text
 
 
@@ -20,6 +21,8 @@ def test_inference_prompt_ends_with_model_turn():
         must_keep_facts=["Cells are basic units of life."],
     )
     assert prompt.endswith("<start_of_turn>model")
+    assert "Adapted Lesson" in prompt
+    assert "Key Concepts Preserved" in prompt
 
 
 def test_readability_band_estimation():

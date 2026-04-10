@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from textwrap import dedent
 
+from gemma4_classroom.output_format import ADAPTED_LESSON_HEADING, KEY_CONCEPTS_HEADING
+
 SYSTEM_PROMPT = dedent(
     """
     You are an expert middle school science curriculum adapter.
@@ -11,8 +13,10 @@ SYSTEM_PROMPT = dedent(
     1. Preserve the science facts from the source.
     2. Do not add new scientific claims.
     3. Change vocabulary, sentence structure, and scaffolding to fit the target level.
-    4. Keep the answer in paragraph form unless the prompt asks otherwise.
-    5. End with a short section titled "Key Concepts Preserved" listing the main facts that stayed the same.
+    4. Write the student-facing rewrite under the heading "Adapted Lesson".
+    5. Put the teacher-facing summary under the heading "Key Concepts Preserved".
+    6. Keep the adapted lesson in paragraph form unless the prompt asks otherwise.
+    7. Keep the key concepts short and factual.
     """
 ).strip()
 
@@ -68,7 +72,14 @@ def build_instruction(source_text: str, target_level: str, must_keep_facts: list
         - Preserve all required facts.
         - Match the requested reading level.
         - Keep the topic and meaning the same.
-        - Finish with "Key Concepts Preserved".
+        - Use this exact structure:
+          {ADAPTED_LESSON_HEADING}
+          <student-facing adapted lesson>
+
+          {KEY_CONCEPTS_HEADING}
+          - <short fact 1>
+          - <short fact 2>
+          - <short fact 3>
         """
     ).strip()
 

@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 from typing import Any
 
+from gemma4_classroom.output_format import normalize_model_output
 from gemma4_classroom.prompting import build_instruction, build_train_text
 
 
@@ -19,7 +20,7 @@ def expand_seed_examples(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     expanded: list[dict[str, Any]] = []
     for record in records:
         for level in LEVELS:
-            response = record["rewrites"][level]
+            response = normalize_model_output(record["rewrites"][level])
             expanded.append(
                 {
                     "source_id": record["source_id"],

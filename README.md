@@ -2,7 +2,12 @@
 
 Local-first middle school science lesson adaptation with Gemma 4 and Unsloth.
 
-This project fine-tunes Gemma 4 to rewrite one teacher-provided science lesson for a specific reading level while preserving scientific meaning. The demo app generates three versions of the same lesson by calling the tuned model three times: `below`, `on`, and `above`.
+This project fine-tunes Gemma 4 to rewrite one teacher-provided science lesson for a specific reading level while preserving scientific meaning. The model is trained to return a structured response with two sections:
+
+- `Adapted Lesson` for the student-facing rewrite
+- `Key Concepts Preserved` for a short teacher-facing fact check
+
+The demo app generates three versions of the same lesson by calling the tuned model three times: `below`, `on`, and `above`.
 
 ## Why this project
 
@@ -115,9 +120,9 @@ PYTHONPATH=src python scripts/run_demo.py \
 
 The demo accepts one science lesson and returns:
 
-- a below-level rewrite
-- an on-level rewrite
-- an above-level rewrite
+- a below-level adapted lesson
+- an on-level adapted lesson
+- an above-level adapted lesson
 - a teacher note listing preserved key concepts
 
 ## Dataset format
@@ -131,6 +136,18 @@ The training task is intentionally narrow. Each example has:
 - `source_text`
 - `must_keep_facts`
 - `rewritten_text`
+
+`rewritten_text` is normalized into a consistent two-section model output:
+
+```text
+Adapted Lesson
+<student-facing rewrite>
+
+Key Concepts Preserved
+- <short fact 1>
+- <short fact 2>
+- <short fact 3>
+```
 
 The generated training JSONL also includes:
 

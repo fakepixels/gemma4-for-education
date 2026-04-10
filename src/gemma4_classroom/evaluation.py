@@ -4,6 +4,7 @@ import json
 from dataclasses import dataclass
 from typing import Any
 
+from gemma4_classroom.output_format import extract_key_concepts, extract_student_facing_text
 from gemma4_classroom.readability import estimate_level_alignment
 
 
@@ -16,24 +17,6 @@ class ExampleScore:
     avg_words_per_sentence: float
     within_target_band: bool
     teacher_usefulness: float
-
-
-def extract_key_concepts(text: str) -> list[str]:
-    marker = "Key Concepts Preserved"
-    if marker not in text:
-        return []
-    tail = text.split(marker, 1)[1]
-    lines = [line.strip(" -:*") for line in tail.splitlines() if line.strip()]
-    return [line for line in lines if line]
-
-
-def extract_student_facing_text(text: str) -> str:
-    marker = "Key Concepts Preserved"
-    if marker not in text:
-        return text.strip()
-    return text.split(marker, 1)[0].strip()
-
-
 def fact_coverage_score(must_keep_facts: list[str], output_text: str) -> float:
     lowered = output_text.lower()
     hits = 0

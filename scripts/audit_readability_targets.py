@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 from gemma4_classroom.data import LEVELS, load_seed_examples
-from gemma4_classroom.evaluation import extract_student_facing_text
+from gemma4_classroom.output_format import extract_student_facing_text
 from gemma4_classroom.readability import estimate_level_alignment
 
 

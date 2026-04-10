@@ -5,6 +5,7 @@ import argparse
 import gradio as gr
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from gemma4_classroom.output_format import extract_key_concepts, extract_student_facing_text
 from gemma4_classroom.prompting import build_inference_prompt
 
 
@@ -38,8 +39,9 @@ def generate_text(model, tokenizer, prompt: str) -> str:
 def extract_teacher_note(outputs: dict[str, str]) -> str:
     shared_concepts = []
     for text in outputs.values():
-        if "Key Concepts Preserved" in text:
-            shared_concepts.append(text.split("Key Concepts Preserved", 1)[1].strip())
+        concepts = extract_key_concepts(text)
+        if concepts:
+            shared_concepts.append("\n".join(f"- {concept}" for concept in concepts))
     if not shared_concepts:
         return "Review the three versions and confirm the main science facts stayed consistent."
     return "Preserved concepts across levels:\n\n" + "\n\n".join(shared_concepts)
@@ -53,7 +55,12 @@ def build_app(model, tokenizer) -> gr.Blocks:
             prompt = build_inference_prompt(source_text=source_text, target_level=level, must_keep_facts=facts)
             outputs[level] = generate_text(model, tokenizer, prompt)
         teacher_note = extract_teacher_note(outputs)
-        return outputs["below"], outputs["on"], outputs["above"], teacher_note
+        return (
+            extract_student_facing_text(outputs["below"]),
+            extract_student_facing_text(outputs["on"]),
+            extract_student_facing_text(outputs["above"]),
+            teacher_note,
+        )
 
     with gr.Blocks(title="Gemma 4 Classroom Adaptation") as demo:
         gr.Markdown(
