@@ -1,7 +1,5 @@
 # Benchmark Results Draft
 
-Use this section after the first CUDA benchmark pass. Replace the bracketed values with real numbers from `artifacts/evals/first_run_summary.md` and the strongest held-out example from `artifacts/evals/first_run_eval.json`.
-
 ## Benchmark Results
 
 To verify that our post-training work improved the model on the exact classroom task we cared about, we evaluated **base Gemma 4** against our **Unsloth fine-tuned Gemma 4 adapter** on a held-out set of middle school science passages. Each test example asked the model to rewrite a source lesson for one target reading level: `below`, `on`, or `above`.
@@ -16,21 +14,24 @@ We scored both models on three criteria:
 
 | Metric | Base Gemma 4 | Tuned Gemma 4 | Delta |
 |---|---:|---:|---:|
-| Avg fact coverage | [0.000] | [0.000] | [+0.000] |
-| Avg teacher usefulness | [0.000] | [0.000] | [+0.000] |
-| Within target band rate | [0.000] | [0.000] | [+0.000] |
+| Avg fact coverage | 0.417 | 1.000 | +0.583 |
+| Avg teacher usefulness | 0.408 | 0.967 | +0.559 |
+| Within target band rate | 0.417 | 0.833 | +0.416 |
 
 These results matter because our project is not trying to solve every education task. It is focused on one narrow, high-value workflow: helping a teacher turn one science lesson into level-appropriate versions without changing the underlying science. A strong result here is more meaningful than a broad but noisy benchmark.
 
 ### Qualitative example
 
-On the held-out example **[SOURCE_ID]**, the base model produced a rewrite that **[describe drift: omitted a fact / overcomplicated the below-level version / missed the requested level]**. The tuned model kept the required facts intact and produced a version that was more appropriate for the requested level.
+On the held-out example **`electric_circuits_001` at the `on` level**, the base model failed to produce a usable adapted lesson or preserved-facts section. Under the same prompt, the tuned model returned a complete classroom-ready response with the requested structure, preserved all five required science facts, and matched the target level band.
+
+This was a representative pattern in our held-out set. Several `on`-level prompts, including `electric_circuits_001`, `atoms_molecules_001`, and `cells_001`, showed the same failure mode for the base model: incomplete or empty usable output. The tuned model consistently returned a structured lesson plus a teacher-facing fact check.
 
 This is the pattern we wanted from fine-tuning:
 
 - less factual drift
 - tighter control over reading complexity
 - outputs a teacher could use with lighter editing
+- stronger adherence to the output format used by the classroom workflow
 
 ### Why this benchmark supports the story
 

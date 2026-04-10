@@ -2,16 +2,20 @@
 
 Local-first middle school science lesson adaptation with Gemma 4 and Unsloth.
 
-This project fine-tunes Gemma 4 to rewrite one teacher-provided science lesson for a specific reading level while preserving scientific meaning. The model is trained to return a structured response with two sections:
+This repo fine-tunes Gemma 4 to do one job well: take a middle school science lesson, rewrite it for a target reading level, and avoid mangling the science in the process.
+
+The model returns a structured response with two sections:
 
 - `Adapted Lesson` for the student-facing rewrite
 - `Key Concepts Preserved` for a short teacher-facing fact check
 
-The demo app generates three versions of the same lesson by calling the tuned model three times: `below`, `on`, and `above`.
+The demo app calls the tuned model three times to generate `below`, `on`, and `above` versions of the same lesson. One lesson in, three classroom-ready drafts out.
 
 ## Why this project
 
-Teachers in low-bandwidth classrooms often need to serve students with very different reading levels using the same lesson. Generic prompting can rewrite text, but it often drops facts, changes emphasis, or misses the target level. This repo narrows the problem to a single trustworthy transformation:
+Teachers in low-bandwidth classrooms already have enough problems. "Rewrite this lesson for three reading levels without breaking the science" should not need to be one of them.
+
+Generic prompting can absolutely rewrite text. It can also quietly drop facts, drift off-level, and become very confident about all of it. This repo narrows the problem to one trustworthy transformation:
 
 - keep the science correct
 - change the reading complexity
@@ -42,7 +46,7 @@ For CUDA training, use a Linux GPU machine and install the training extras there
 bash scripts/setup_cuda_env.sh
 ```
 
-You can also use [`Makefile`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/Makefile) targets such as `make install-local`, `make install-cuda`, `make prepare-data`, and `make test`.
+If you like `make`, there is a [`Makefile`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/Makefile) with targets like `make install-local`, `make install-cuda`, `make prepare-data`, and `make test`.
 
 ## 2. Build the dataset
 
@@ -57,7 +61,7 @@ This creates:
 - `data/processed/test.jsonl`
 - `data/processed/dataset_manifest.json`
 
-By default, the script ingests every raw dataset JSON file in [`data/raw/`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/data/raw) except the template file, so you can grow the corpus across multiple curated files.
+By default, the script ingests every raw dataset JSON file in [`data/raw/`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/data/raw) except the template file, so you can keep growing the corpus without turning the pipeline into archaeology.
 
 Validate raw files before training:
 
@@ -73,7 +77,7 @@ Edit [`configs/train.yaml`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/confi
 PYTHONPATH=src python scripts/train_unsloth.py --config configs/train.yaml
 ```
 
-The default config is set up for a Gemma 4 E2B or E4B style workflow with LoRA/QLoRA and single-target rewriting.
+The default config is set up for a Gemma 4 E2B/E4B-style workflow with LoRA/QLoRA and single-target rewriting.
 
 For the first real CUDA run, use:
 
@@ -83,7 +87,7 @@ bash scripts/first_cuda_run.sh
 
 That script uses [`configs/train.first_run.yaml`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/configs/train.first_run.yaml) and [`configs/eval.first_run.yaml`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/configs/eval.first_run.yaml). The first-run profile is tuned for a **single NVIDIA L4 24 GB GPU**.
 
-If you want the repo to automatically step down through safer first-run configs after an OOM, use:
+If you want the repo to be emotionally mature about OOMs and automatically step down through safer configs, use:
 
 ```bash
 AUTO_OPTIMIZE_FIRST_RUN=1 OPTIMIZE_GOAL=benchmark bash scripts/first_cuda_run.sh
@@ -124,6 +128,8 @@ The demo accepts one science lesson and returns:
 - an on-level adapted lesson
 - an above-level adapted lesson
 - a teacher note listing preserved key concepts
+
+The product idea is intentionally simple. No agent maze. No twelve-tab orchestration diagram. Just a teacher, one lesson, and three better starting points.
 
 ## Dataset format
 
@@ -170,7 +176,7 @@ Recommended data workflow:
 1. Draft new source passages in the template format.
 2. Validate them with `scripts/validate_dataset.py`.
 3. Rebuild `data/processed/`.
-4. Keep train/val/test splits at the source level, not the rewrite level.
+4. Keep train/val/test splits at the source level, not the rewrite level. Leakage is boring and expensive.
 
 ## Environment files
 
@@ -188,17 +194,17 @@ PYTHONPATH=src python scripts/summarize_eval.py \
   --output artifacts/evals/first_run_summary.md
 ```
 
-The resulting Markdown file is designed to drop directly into the Kaggle writeup draft.
+The resulting Markdown file is designed to drop directly into the Kaggle writeup draft with minimal cleanup.
 
 There is also a ready-to-fill benchmark section draft at [`docs/kaggle_benchmark_section_draft.md`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/docs/kaggle_benchmark_section_draft.md).
 
 ## Evaluation philosophy
 
-This project is designed for a competition submission, so the key claim must stay crisp:
+This project is designed for a competition submission, so the key claim has to stay crisp:
 
 > Tuned Gemma 4 preserves science facts better and controls reading level more reliably than base Gemma 4 on classroom adaptation tasks.
 
-The benchmark is built around that claim instead of broad educational QA.
+The benchmark is built around that claim instead of trying to prove the model can solve education in one repo.
 
 ## Suggested next steps
 
@@ -206,4 +212,4 @@ The benchmark is built around that claim instead of broad educational QA.
 2. Replace part of the seed rewrites with teacher-reviewed adaptations.
 3. Run a first LoRA training job on Gemma 4 E2B or E4B.
 4. Compare base vs tuned on a fixed held-out set.
-5. Use the strongest examples in the Kaggle writeup and demo video.
+5. Use the strongest examples in the Kaggle writeup and demo video instead of asking the benchmark to be charismatic on its own.
