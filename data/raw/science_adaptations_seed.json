@@ -1,0 +1,110 @@
+[
+  {
+    "source_id": "water_cycle_001",
+    "topic": "water_cycle",
+    "grade_band": "middle_school",
+    "source_text": "The water cycle describes how water moves through Earth's systems. Heat from the Sun causes liquid water in oceans, lakes, and rivers to evaporate into water vapor. Plants also release water vapor through transpiration. As water vapor rises, it cools and condenses into tiny droplets that form clouds. When the droplets become large and heavy enough, water falls back to Earth as precipitation such as rain, snow, sleet, or hail. Some water soaks into the ground, some flows over land as runoff, and some collects again in bodies of water. The cycle continues because Earth's gravity and the Sun's energy keep water moving.",
+    "must_keep_facts": [
+      "The Sun's heat causes evaporation.",
+      "Plants release water vapor through transpiration.",
+      "Water vapor cools and condenses into clouds.",
+      "Precipitation can be rain, snow, sleet, or hail.",
+      "Gravity and solar energy keep the cycle moving."
+    ],
+    "rewrites": {
+      "below": "Water on Earth keeps moving in a loop called the water cycle. The Sun warms water in lakes, rivers, and oceans, and some of it turns into gas called water vapor. Plants also send water vapor into the air. High in the sky, the vapor cools and forms clouds. When the drops in clouds get big, water falls as rain, snow, sleet, or hail. Then the water goes into the ground, runs over land, or collects in lakes and oceans again. The Sun and gravity help this cycle keep going.",
+      "on": "The water cycle is the path water takes as it moves through Earth. Energy from the Sun causes water in oceans, lakes, and rivers to evaporate into water vapor, and plants add more vapor through transpiration. As the vapor rises, it cools and condenses into droplets that make clouds. When those droplets grow large enough, precipitation falls as rain, snow, sleet, or hail. After that, water may soak into the ground, move as runoff, or collect in bodies of water again. The cycle repeats because the Sun provides energy and gravity pulls water back toward Earth.",
+      "above": "The water cycle is a continuous Earth system powered by solar energy and gravity. Solar heating drives evaporation from oceans, lakes, and rivers, while plants contribute additional water vapor through transpiration. As this vapor rises into cooler air, it condenses into tiny droplets that form clouds. Once those droplets become sufficiently large, precipitation returns water to Earth as rain, snow, sleet, or hail. The fallen water may infiltrate soil, travel as surface runoff, or collect in bodies of water, where the cycle begins again. Together, the Sun's energy and Earth's gravity sustain this repeating movement of water."
+    }
+  },
+  {
+    "source_id": "ecosystems_001",
+    "topic": "ecosystems",
+    "grade_band": "middle_school",
+    "source_text": "An ecosystem is made of living things and nonliving parts of the environment that interact with each other. Producers such as plants make their own food using sunlight. Consumers get energy by eating plants or other animals. Decomposers, including fungi and many bacteria, break down dead organisms and waste. This recycling returns nutrients to the soil and helps support new plant growth. Changes to one part of an ecosystem can affect many other parts because the organisms depend on one another and on resources such as water, air, sunlight, and shelter.",
+    "must_keep_facts": [
+      "An ecosystem includes living and nonliving parts.",
+      "Producers make food using sunlight.",
+      "Consumers get energy by eating plants or animals.",
+      "Decomposers break down dead matter and waste.",
+      "Changes in one part of an ecosystem can affect other parts."
+    ],
+    "rewrites": {
+      "below": "An ecosystem is a place where living things and nonliving things work together. Plants are producers because they make their own food from sunlight. Animals are consumers because they get energy by eating plants or other animals. Decomposers like fungi and bacteria break down dead things and waste. This puts nutrients back into the soil so new plants can grow. If one part of the ecosystem changes, many other parts can change too.",
+      "on": "An ecosystem includes living organisms and the nonliving parts of their environment. Producers, like plants, use sunlight to make their own food. Consumers get energy by eating plants or other animals. Decomposers, such as fungi and bacteria, break down dead organisms and waste, returning nutrients to the soil. Those nutrients help new plants grow. Because organisms depend on one another and on resources like water, air, sunlight, and shelter, a change in one part of an ecosystem can affect many other parts.",
+      "above": "An ecosystem is a network of interactions between living organisms and the nonliving environment around them. Producers, including plants, capture sunlight to make their own food, while consumers obtain energy by eating plants or other animals. Decomposers such as fungi and many bacteria break down dead organisms and waste, recycling nutrients back into the soil. This nutrient cycling supports future plant growth and keeps the system functioning. Because ecosystem members depend on one another and on resources like water, air, sunlight, and shelter, a change to one component can ripple through the entire ecosystem."
+    }
+  },
+  {
+    "source_id": "cells_001",
+    "topic": "cells",
+    "grade_band": "middle_school",
+    "source_text": "Cells are the basic units of structure and function in living things. Most cells contain a cell membrane, cytoplasm, and genetic material. In plant cells, a cell wall provides support, and chloroplasts capture light energy for photosynthesis. Animal cells do not have cell walls or chloroplasts. The nucleus stores DNA and helps control the cell's activities. Mitochondria release usable energy from food. Although plant and animal cells have differences, both types carry out the processes needed for life.",
+    "must_keep_facts": [
+      "Cells are the basic units of structure and function in living things.",
+      "Most cells have a membrane, cytoplasm, and genetic material.",
+      "Plant cells have cell walls and chloroplasts.",
+      "Animal cells do not have cell walls or chloroplasts.",
+      "The nucleus stores DNA and mitochondria release usable energy from food."
+    ],
+    "rewrites": {
+      "below": "Cells are tiny parts that make up living things. Most cells have a membrane on the outside, jelly-like cytoplasm inside, and genetic material. Plant cells have a strong cell wall and chloroplasts that help them use light for photosynthesis. Animal cells do not have cell walls or chloroplasts. The nucleus holds DNA and helps control the cell. Mitochondria help release energy from food. Even though plant and animal cells are different, both do the jobs needed for life.",
+      "on": "Cells are the basic units that make up living things and carry out life processes. Most cells contain a cell membrane, cytoplasm, and genetic material. Plant cells also have a cell wall for support and chloroplasts that capture light energy for photosynthesis. Animal cells do not have cell walls or chloroplasts. The nucleus stores DNA and helps direct the cell's activities, while mitochondria release usable energy from food. Even with their differences, both plant and animal cells perform the functions necessary for life.",
+      "above": "Cells are the basic units of structure and function in all living organisms. Most cells include a cell membrane, cytoplasm, and genetic material. Plant cells have additional structures, including a rigid cell wall for support and chloroplasts that capture light energy for photosynthesis, while animal cells lack both cell walls and chloroplasts. The nucleus stores DNA and helps regulate cellular activities, and mitochondria release usable energy from food. Although plant and animal cells differ in structure, both perform the essential processes required for life."
+    }
+  },
+  {
+    "source_id": "weather_001",
+    "topic": "weather",
+    "grade_band": "middle_school",
+    "source_text": "Weather describes the conditions of the atmosphere at a particular time and place. Scientists measure factors such as temperature, humidity, wind speed, air pressure, and precipitation to describe weather. Weather can change quickly because air masses move and interact. A front forms when two air masses meet. Warm fronts and cold fronts often bring different kinds of weather changes. Meteorologists use data from weather stations, satellites, radar, and computer models to make forecasts, but forecasts are not always exact because the atmosphere is complex.",
+    "must_keep_facts": [
+      "Weather describes atmospheric conditions at a certain time and place.",
+      "Weather is described using measurements like temperature, humidity, wind, air pressure, and precipitation.",
+      "Weather can change quickly when air masses move and interact.",
+      "A front forms when two air masses meet.",
+      "Meteorologists use data and models to make forecasts, but forecasts are not always exact."
+    ],
+    "rewrites": {
+      "below": "Weather is what the air is like at a certain place and time. Scientists look at temperature, humidity, wind, air pressure, and precipitation to describe it. Weather can change fast when big groups of air move and mix. When two air masses meet, they make a front. Warm fronts and cold fronts often bring different weather. Meteorologists use tools and computer models to make forecasts, but forecasts are not always perfect.",
+      "on": "Weather is the condition of the atmosphere at a certain time and place. Scientists describe weather by measuring temperature, humidity, wind speed, air pressure, and precipitation. Weather can change quickly because air masses move and interact. When two air masses meet, a front forms, and warm fronts and cold fronts often bring different changes in weather. Meteorologists collect data from weather stations, satellites, radar, and computer models to make forecasts. However, forecasts are not always exact because the atmosphere is complex.",
+      "above": "Weather refers to atmospheric conditions at a specific time and place. Scientists describe it using measurements such as temperature, humidity, wind speed, air pressure, and precipitation. Because air masses move and interact, weather can change rapidly. A front forms where two air masses meet, and warm fronts and cold fronts often lead to different weather patterns. Meteorologists rely on data from weather stations, satellites, radar, and computer models to produce forecasts. Even so, forecasts are not always exact because the atmosphere is a highly complex system."
+    }
+  },
+  {
+    "source_id": "energy_001",
+    "topic": "energy",
+    "grade_band": "middle_school",
+    "source_text": "Energy is the ability to cause change or do work. Energy can exist in many forms, including thermal, chemical, electrical, light, and motion energy. Energy can be transferred from one object to another and can also be transformed from one form into another. For example, a flashlight changes chemical energy stored in a battery into electrical energy and then into light and thermal energy. According to the law of conservation of energy, energy is not created or destroyed, but it can change form or move between systems.",
+    "must_keep_facts": [
+      "Energy is the ability to cause change or do work.",
+      "Energy exists in multiple forms such as thermal, chemical, electrical, light, and motion.",
+      "Energy can be transferred and transformed.",
+      "A flashlight changes battery chemical energy into electrical, light, and thermal energy.",
+      "Energy is not created or destroyed."
+    ],
+    "rewrites": {
+      "below": "Energy is what makes change happen or helps do work. It can be thermal, chemical, electrical, light, or motion energy. Energy can move from one thing to another, and it can change from one kind into another kind. A flashlight is one example. It changes chemical energy in the battery into electrical energy, and then into light and heat. Energy is not created or destroyed, but it can move or change form.",
+      "on": "Energy is the ability to cause change or do work. It comes in many forms, including thermal, chemical, electrical, light, and motion energy. Energy can be transferred from one object to another, and it can also be transformed into different forms. For example, a flashlight changes chemical energy stored in a battery into electrical energy and then into light and thermal energy. The law of conservation of energy states that energy is not created or destroyed, even though it can change form or move between systems.",
+      "above": "Energy is the ability to cause change or perform work. It exists in multiple forms, including thermal, chemical, electrical, light, and motion energy. Energy may be transferred between objects and also transformed from one form into another. A flashlight provides a clear example by converting chemical energy in its battery into electrical energy, which then becomes light and thermal energy. Under the law of conservation of energy, energy is not created or destroyed; instead, it changes form or moves between systems."
+    }
+  },
+  {
+    "source_id": "matter_001",
+    "topic": "matter",
+    "grade_band": "middle_school",
+    "source_text": "Matter is anything that has mass and takes up space. Matter is made of tiny particles called atoms. The three common states of matter are solid, liquid, and gas. In a solid, particles are packed closely and mainly vibrate in place. In a liquid, particles are still close together but can slide past one another. In a gas, particles are much farther apart and move freely. Changes in temperature can cause matter to change state, but the type of matter remains the same during a physical change.",
+    "must_keep_facts": [
+      "Matter has mass and takes up space.",
+      "Matter is made of atoms.",
+      "The common states of matter are solid, liquid, and gas.",
+      "Particles behave differently in solids, liquids, and gases.",
+      "Temperature changes can change state without changing the type of matter in a physical change."
+    ],
+    "rewrites": {
+      "below": "Matter is anything that has mass and takes up space. Matter is made of tiny particles called atoms. The main states of matter are solid, liquid, and gas. In a solid, particles stay close together and mostly shake in place. In a liquid, particles are close but can slide past each other. In a gas, particles are spread out and move freely. Temperature can make matter change state, but the matter stays the same kind during a physical change.",
+      "on": "Matter is anything that has mass and takes up space. It is made of tiny particles called atoms. The three common states of matter are solid, liquid, and gas. In solids, particles are packed closely and mainly vibrate in place. In liquids, particles remain close together but can slide past one another. In gases, particles are farther apart and move freely. When temperature changes, matter can change from one state to another, but during a physical change it remains the same type of matter.",
+      "above": "Matter is anything that has mass and occupies space, and it is composed of tiny particles called atoms. The three common states of matter are solid, liquid, and gas. In solids, particles are tightly packed and primarily vibrate in place. In liquids, particles remain close together while moving past one another. In gases, particles are much farther apart and move freely. Temperature changes can cause matter to change state, but during a physical change the substance remains the same type of matter."
+    }
+  }
+]

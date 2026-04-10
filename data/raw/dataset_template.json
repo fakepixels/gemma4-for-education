@@ -1,0 +1,18 @@
+[
+  {
+    "source_id": "topic_slug_001",
+    "topic": "topic_slug",
+    "grade_band": "middle_school",
+    "source_text": "Write the original middle school science passage here.",
+    "must_keep_facts": [
+      "Fact 1 that must remain true.",
+      "Fact 2 that must remain true.",
+      "Fact 3 that must remain true."
+    ],
+    "rewrites": {
+      "below": "Rewrite for below-level readers with simpler vocabulary and shorter sentences.",
+      "on": "Rewrite for on-level readers while keeping the same scientific meaning.",
+      "above": "Rewrite for above-level readers with more academic language and denser sentence structure."
+    }
+  }
+]

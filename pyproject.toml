@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gemma4-classroom-adaptation"
+version = "0.1.0"
+description = "Local-first Gemma 4 lesson adaptation for mixed reading levels."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "datasets>=2.20.0",
+  "gradio>=5.0.0",
+  "peft>=0.12.0",
+  "pydantic>=2.8.0",
+  "pyyaml>=6.0.2",
+  "sentencepiece>=0.2.0",
+  "torch>=2.4.0",
+  "transformers>=4.55.0",
+]
+
+[project.optional-dependencies]
+cuda_train = [
+  "accelerate>=0.34.0",
+  "bitsandbytes>=0.45.0",
+  "trl>=0.10.1",
+  "unsloth>=2026.3.0",
+]
+demo = []
+dev = [
+  "pytest>=8.3.0",
+  "ruff>=0.6.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

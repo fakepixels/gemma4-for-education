@@ -1,0 +1,236 @@
+[
+  {
+    "source_id": "photosynthesis_001",
+    "topic": "photosynthesis",
+    "grade_band": "middle_school",
+    "source_text": "Photosynthesis is the process plants use to make food. In the chloroplasts of plant cells, energy from sunlight helps combine carbon dioxide from the air with water from the soil. This process produces glucose, which stores chemical energy, and oxygen, which is released into the air. Photosynthesis is important because it provides food for plants and supports many food webs. It also helps maintain oxygen levels in Earth's atmosphere.",
+    "must_keep_facts": [
+      "Photosynthesis is how plants make food.",
+      "It happens in chloroplasts.",
+      "Plants use sunlight, carbon dioxide, and water.",
+      "The process makes glucose and oxygen.",
+      "Photosynthesis supports food webs and oxygen in the atmosphere."
+    ],
+    "rewrites": {
+      "below": "Photosynthesis is how plants make their own food. It happens in chloroplasts inside plant cells. Plants use sunlight, carbon dioxide from the air, and water from the soil. They make glucose, which is a kind of sugar that stores energy, and they release oxygen into the air. Photosynthesis matters because it gives plants food, helps many living things get energy through food webs, and adds oxygen to the atmosphere.\n\nKey Concepts Preserved\n- Plants make food by photosynthesis.\n- Chloroplasts are where it happens.\n- Plants use sunlight, water, and carbon dioxide.\n- The process makes glucose and oxygen.",
+      "on": "Photosynthesis is the process plants use to make food. It takes place in chloroplasts, where energy from sunlight helps combine carbon dioxide from the air with water from the soil. This reaction produces glucose, which stores chemical energy, and oxygen, which is released into the atmosphere. Photosynthesis is important because it feeds plants, supports food webs, and helps maintain oxygen levels in the air.\n\nKey Concepts Preserved\n- Photosynthesis is how plants make food.\n- It occurs in chloroplasts.\n- It uses sunlight, carbon dioxide, and water.\n- It produces glucose and oxygen.",
+      "above": "Photosynthesis is the process by which plants produce food using light energy. In the chloroplasts of plant cells, sunlight powers reactions that combine carbon dioxide from the atmosphere with water from the soil. These reactions produce glucose, which stores chemical energy, and oxygen, which is released into the air. Photosynthesis is essential because it supplies energy for plants, supports many food webs, and helps sustain atmospheric oxygen levels.\n\nKey Concepts Preserved\n- Plants make food through photosynthesis.\n- The process occurs in chloroplasts.\n- Sunlight, carbon dioxide, and water are required.\n- Glucose and oxygen are produced."
+    }
+  },
+  {
+    "source_id": "food_webs_001",
+    "topic": "food_webs",
+    "grade_band": "middle_school",
+    "source_text": "A food web shows how energy moves through an ecosystem. Producers such as plants capture energy from sunlight. Primary consumers eat producers, while secondary and tertiary consumers eat other animals. Because many organisms have more than one food source, food webs are more accurate than simple food chains. If one population changes, the effects can spread through the web because organisms are connected by feeding relationships.",
+    "must_keep_facts": [
+      "A food web shows how energy moves through an ecosystem.",
+      "Producers get energy from sunlight.",
+      "Primary consumers eat producers.",
+      "Higher-level consumers eat other animals.",
+      "Changes in one population can affect other parts of the web."
+    ],
+    "rewrites": {
+      "below": "A food web shows how energy moves in an ecosystem. Plants are producers, and they get energy from sunlight. Primary consumers eat the producers. Other consumers eat animals. Food webs are better than simple food chains because many living things eat more than one kind of food. If one group changes, other parts of the food web can change too.\n\nKey Concepts Preserved\n- Food webs show energy movement.\n- Producers use sunlight.\n- Primary consumers eat producers.\n- Changes can spread through the web.",
+      "on": "A food web shows how energy moves through an ecosystem. Producers, such as plants, capture energy from sunlight. Primary consumers eat producers, while higher-level consumers eat other animals. Food webs are more accurate than simple food chains because many organisms have more than one food source. When one population changes, the effects can spread through the web because feeding relationships connect organisms.\n\nKey Concepts Preserved\n- Food webs track energy flow.\n- Producers use sunlight.\n- Primary consumers eat producers.\n- Population changes affect connected organisms.",
+      "above": "A food web represents the movement of energy through an ecosystem. Producers such as plants capture energy from sunlight, primary consumers feed on producers, and secondary or tertiary consumers feed on other animals. Food webs describe ecosystems more accurately than simple food chains because many organisms rely on multiple food sources. As a result, a change in one population can ripple through the system because organisms are linked by feeding relationships.\n\nKey Concepts Preserved\n- Food webs show ecosystem energy flow.\n- Producers capture sunlight energy.\n- Primary consumers eat producers.\n- Population shifts can affect the whole web."
+    }
+  },
+  {
+    "source_id": "plate_tectonics_001",
+    "topic": "plate_tectonics",
+    "grade_band": "middle_school",
+    "source_text": "Earth's outer shell is divided into large pieces called tectonic plates. These plates move slowly over the softer layer of rock beneath them. Plate movement can cause earthquakes, volcanic activity, mountain building, and the formation of ocean trenches. At divergent boundaries, plates move apart. At convergent boundaries, plates move toward each other. At transform boundaries, plates slide past one another. Scientists use evidence from earthquakes, volcanoes, fossils, and the shapes of continents to support the theory of plate tectonics.",
+    "must_keep_facts": [
+      "Earth's outer shell is divided into tectonic plates.",
+      "The plates move slowly.",
+      "Plate movement can cause earthquakes, volcanoes, mountains, and trenches.",
+      "Divergent, convergent, and transform boundaries describe different kinds of movement.",
+      "Scientists use multiple kinds of evidence to support plate tectonics."
+    ],
+    "rewrites": {
+      "below": "Earth's outer layer is broken into big pieces called tectonic plates. These plates move slowly. When they move, they can cause earthquakes, volcanoes, mountains, and ocean trenches. Plates can move apart, move toward each other, or slide past each other. Scientists use clues like earthquakes, volcanoes, fossils, and the shapes of continents to understand plate tectonics.\n\nKey Concepts Preserved\n- Earth has tectonic plates.\n- Plates move slowly.\n- Their movement causes major Earth changes.\n- Scientists have evidence for plate tectonics.",
+      "on": "Earth's outer shell is divided into large pieces called tectonic plates. These plates move slowly over the softer rock below them. Their movement can cause earthquakes, volcanic activity, mountain building, and ocean trenches. Divergent boundaries form where plates move apart, convergent boundaries form where plates move toward each other, and transform boundaries form where plates slide past one another. Scientists support the theory of plate tectonics using evidence such as earthquakes, volcanoes, fossils, and the shapes of continents.\n\nKey Concepts Preserved\n- Earth's outer shell is split into tectonic plates.\n- Plates move slowly.\n- Plate boundaries explain different types of motion.\n- Scientists use several kinds of evidence.",
+      "above": "Earth's outer shell is divided into large moving sections called tectonic plates. These plates shift slowly over the softer rock beneath them, and their movement can produce earthquakes, volcanoes, mountain ranges, and ocean trenches. Divergent boundaries occur where plates move apart, convergent boundaries occur where plates move toward each other, and transform boundaries occur where plates slide past one another. Scientists support plate tectonic theory with evidence from earthquakes, volcanoes, fossils, and the way continents fit together.\n\nKey Concepts Preserved\n- Earth's outer shell contains tectonic plates.\n- Plates move slowly and reshape Earth's surface.\n- Boundary types describe different motions.\n- Plate tectonics is supported by multiple kinds of evidence."
+    }
+  },
+  {
+    "source_id": "rock_cycle_001",
+    "topic": "rock_cycle",
+    "grade_band": "middle_school",
+    "source_text": "The rock cycle explains how rocks change from one type to another over time. Igneous rocks form when melted rock cools and hardens. Sedimentary rocks form when sediments are compacted and cemented together. Metamorphic rocks form when existing rocks change because of heat and pressure. Weathering, erosion, melting, cooling, heat, and pressure are all parts of the rock cycle. Because these processes continue over long periods, any rock type can become another type under the right conditions.",
+    "must_keep_facts": [
+      "The rock cycle explains how rocks change over time.",
+      "Igneous rocks form from cooled melted rock.",
+      "Sedimentary rocks form from compacted and cemented sediments.",
+      "Metamorphic rocks form through heat and pressure.",
+      "Any rock type can become another under the right conditions."
+    ],
+    "rewrites": {
+      "below": "The rock cycle shows how rocks can change over time. Igneous rocks form when melted rock cools and becomes hard. Sedimentary rocks form when pieces of rock and other sediments get pressed and stuck together. Metamorphic rocks form when heat and pressure change rocks that already exist. Weathering, erosion, melting, cooling, heat, and pressure all help rocks change. Over a long time, one type of rock can become another type.\n\nKey Concepts Preserved\n- Rocks can change over time.\n- Igneous rocks come from cooled melted rock.\n- Sedimentary rocks form from pressed sediments.\n- Metamorphic rocks form from heat and pressure.",
+      "on": "The rock cycle explains how rocks change from one type to another over time. Igneous rocks form when melted rock cools and hardens. Sedimentary rocks form when sediments are compacted and cemented together. Metamorphic rocks form when heat and pressure change existing rocks. Processes like weathering, erosion, melting, and cooling all play a role in the rock cycle. Because these processes continue over long periods, any kind of rock can become another type if conditions are right.\n\nKey Concepts Preserved\n- The rock cycle describes rock changes.\n- Igneous rocks form from cooled melted rock.\n- Sedimentary rocks form from compacted sediments.\n- Metamorphic rocks form by heat and pressure.",
+      "above": "The rock cycle describes how rocks transform from one type to another over time. Igneous rocks form when molten rock cools and solidifies, sedimentary rocks form when sediments are compacted and cemented, and metamorphic rocks form when existing rocks are changed by heat and pressure. Weathering, erosion, melting, cooling, heat, and pressure all contribute to this cycle. Since these processes continue over long periods, any rock type can eventually become another under the right conditions.\n\nKey Concepts Preserved\n- The rock cycle explains rock transformation.\n- Igneous rocks form from cooled molten rock.\n- Sedimentary rocks form from compacted sediments.\n- Metamorphic rocks form through heat and pressure."
+    }
+  },
+  {
+    "source_id": "moon_phases_001",
+    "topic": "moon_phases",
+    "grade_band": "middle_school",
+    "source_text": "The Moon does not make its own light. Instead, it reflects sunlight. As the Moon orbits Earth, we see different amounts of its sunlit half, which creates the phases of the Moon. The main phases include new moon, first quarter, full moon, and third quarter. The Moon's phases are caused by its position relative to Earth and the Sun, not by Earth's shadow. Earth's shadow causes lunar eclipses, which are different events.",
+    "must_keep_facts": [
+      "The Moon reflects sunlight and does not make its own light.",
+      "Moon phases happen because we see different amounts of the sunlit half.",
+      "The Moon orbits Earth.",
+      "Earth's shadow does not cause the regular phases of the Moon.",
+      "Earth's shadow causes lunar eclipses."
+    ],
+    "rewrites": {
+      "below": "The Moon does not make its own light. It reflects light from the Sun. As the Moon goes around Earth, we see different amounts of the part lit by the Sun. That is why the Moon has phases like new moon, first quarter, full moon, and third quarter. The regular phases are not caused by Earth's shadow. Earth's shadow causes lunar eclipses instead.\n\nKey Concepts Preserved\n- The Moon reflects sunlight.\n- Moon phases happen as the Moon orbits Earth.\n- Phases are not caused by Earth's shadow.\n- Earth's shadow causes lunar eclipses.",
+      "on": "The Moon does not produce its own light. It reflects sunlight. As the Moon orbits Earth, we see different amounts of its sunlit half, which creates the Moon's phases. These phases include new moon, first quarter, full moon, and third quarter. The regular phases are caused by the Moon's position relative to Earth and the Sun, not by Earth's shadow. Earth's shadow causes lunar eclipses, which are different events.\n\nKey Concepts Preserved\n- The Moon reflects sunlight.\n- Phases happen because we see different parts of the lit half.\n- The Moon orbits Earth.\n- Earth's shadow causes eclipses, not normal phases.",
+      "above": "The Moon does not generate its own light; it reflects sunlight. As it orbits Earth, we observe different portions of its sunlit half, creating phases such as new moon, first quarter, full moon, and third quarter. These phases result from the positions of the Moon, Earth, and Sun, not from Earth's shadow. Earth's shadow is responsible for lunar eclipses, which are separate events.\n\nKey Concepts Preserved\n- The Moon reflects sunlight instead of producing its own light.\n- Moon phases depend on the visible sunlit portion.\n- The Moon orbits Earth.\n- Earth's shadow causes lunar eclipses, not ordinary phases."
+    }
+  },
+  {
+    "source_id": "seasons_001",
+    "topic": "seasons",
+    "grade_band": "middle_school",
+    "source_text": "Earth has seasons because its axis is tilted as it revolves around the Sun. During part of the year, one hemisphere is tilted toward the Sun and receives more direct sunlight and longer days. At the same time, the other hemisphere is tilted away from the Sun and receives less direct sunlight and shorter days. This difference in sunlight causes seasonal changes in temperature and daylight. Seasons are not caused by Earth being closer to or farther from the Sun.",
+    "must_keep_facts": [
+      "Earth's axis is tilted.",
+      "Earth revolves around the Sun.",
+      "A hemisphere tilted toward the Sun gets more direct sunlight and longer days.",
+      "A hemisphere tilted away gets less direct sunlight and shorter days.",
+      "Seasons are not caused by distance from the Sun."
+    ],
+    "rewrites": {
+      "below": "Earth has seasons because it is tilted as it moves around the Sun. When one half of Earth is tilted toward the Sun, it gets more direct sunlight and longer days. The other half gets less direct sunlight and shorter days. This changes temperature and daylight, which gives us the seasons. Seasons do not happen because Earth is closer to or farther from the Sun.\n\nKey Concepts Preserved\n- Earth is tilted.\n- Earth moves around the Sun.\n- More direct sunlight means longer days.\n- Seasons are not caused by distance from the Sun.",
+      "on": "Earth's seasons happen because its axis is tilted as Earth revolves around the Sun. When one hemisphere is tilted toward the Sun, it receives more direct sunlight and has longer days. The other hemisphere is tilted away and receives less direct sunlight and has shorter days. These differences in sunlight cause changes in temperature and daylight that create the seasons. Seasons are not caused by Earth being closer to or farther from the Sun.\n\nKey Concepts Preserved\n- Earth's tilt causes seasons.\n- Earth revolves around the Sun.\n- Sunlight and day length change between hemispheres.\n- Distance from the Sun is not the cause.",
+      "above": "Seasons occur because Earth's axis is tilted while the planet revolves around the Sun. When a hemisphere is tilted toward the Sun, it experiences more direct sunlight and longer daylight hours, while the opposite hemisphere receives less direct sunlight and shorter days. These differences in solar energy produce seasonal changes in temperature and daylight. Seasons are not caused by Earth being significantly closer to or farther from the Sun.\n\nKey Concepts Preserved\n- Earth's tilted axis causes seasons.\n- Earth revolves around the Sun.\n- Hemispheres receive different amounts of direct sunlight.\n- Distance from the Sun is not the reason for seasons."
+    }
+  },
+  {
+    "source_id": "respiration_001",
+    "topic": "cellular_respiration",
+    "grade_band": "middle_school",
+    "source_text": "Cellular respiration is the process cells use to release usable energy from food. In this process, cells break down glucose in a series of chemical reactions. Oxygen is often used, and carbon dioxide and water are produced as waste products. The energy released is stored in molecules such as ATP, which cells use to carry out many activities. Cellular respiration happens in both plants and animals.",
+    "must_keep_facts": [
+      "Cellular respiration releases usable energy from food.",
+      "Cells break down glucose.",
+      "Oxygen is often used.",
+      "Carbon dioxide and water are produced.",
+      "The released energy is stored in ATP and the process occurs in plants and animals."
+    ],
+    "rewrites": {
+      "below": "Cellular respiration is how cells get usable energy from food. Cells break down glucose in chemical reactions. Oxygen is often used in the process. Carbon dioxide and water are made as waste. The energy is stored in ATP, which cells use for many jobs. Cellular respiration happens in both plants and animals.\n\nKey Concepts Preserved\n- Cellular respiration releases energy from food.\n- Cells break down glucose.\n- Oxygen is often used.\n- Carbon dioxide, water, and ATP are part of the process.",
+      "on": "Cellular respiration is the process cells use to release usable energy from food. During this process, cells break down glucose through chemical reactions. Oxygen is often used, and carbon dioxide and water are produced as waste products. The released energy is stored in ATP, which cells use for many activities. Cellular respiration takes place in both plants and animals.\n\nKey Concepts Preserved\n- Cellular respiration releases usable energy.\n- Glucose is broken down.\n- Oxygen is often used.\n- Carbon dioxide, water, and ATP are involved.",
+      "above": "Cellular respiration is the process cells use to extract usable energy from food. Cells break down glucose through a series of chemical reactions, often using oxygen, and this produces carbon dioxide and water as waste products. The released energy is stored in ATP molecules, which power many cellular activities. Cellular respiration occurs in both plant and animal cells.\n\nKey Concepts Preserved\n- Cellular respiration releases energy from food.\n- Glucose is broken down.\n- Oxygen is commonly used.\n- Carbon dioxide, water, and ATP are part of the process."
+    }
+  },
+  {
+    "source_id": "human_body_systems_001",
+    "topic": "body_systems",
+    "grade_band": "middle_school",
+    "source_text": "The human body is made of organ systems that work together. The circulatory system moves blood through the body, carrying oxygen and nutrients to cells. The respiratory system brings oxygen into the body and removes carbon dioxide. The digestive system breaks down food so nutrients can be absorbed. The nervous system sends and receives signals that help control the body. These systems depend on one another to keep the body functioning.",
+    "must_keep_facts": [
+      "The human body has organ systems that work together.",
+      "The circulatory system moves blood and carries oxygen and nutrients.",
+      "The respiratory system brings in oxygen and removes carbon dioxide.",
+      "The digestive system breaks down food so nutrients can be absorbed.",
+      "The nervous system sends and receives signals."
+    ],
+    "rewrites": {
+      "below": "The human body has different systems that work together. The circulatory system moves blood and carries oxygen and nutrients. The respiratory system brings in oxygen and gets rid of carbon dioxide. The digestive system breaks down food so the body can take in nutrients. The nervous system sends and receives signals to help control the body. These systems need each other to keep the body working.\n\nKey Concepts Preserved\n- Body systems work together.\n- The circulatory system moves blood.\n- The respiratory system handles oxygen and carbon dioxide.\n- The digestive and nervous systems have special jobs.",
+      "on": "The human body is made of organ systems that work together. The circulatory system moves blood through the body and carries oxygen and nutrients to cells. The respiratory system brings oxygen into the body and removes carbon dioxide. The digestive system breaks down food so nutrients can be absorbed, and the nervous system sends and receives signals that help control the body. These systems depend on one another to keep the body functioning properly.\n\nKey Concepts Preserved\n- Organ systems work together.\n- The circulatory system carries oxygen and nutrients.\n- The respiratory system exchanges oxygen and carbon dioxide.\n- The digestive and nervous systems have important roles.",
+      "above": "The human body contains organ systems that function together. The circulatory system transports blood, delivering oxygen and nutrients to cells, while the respiratory system brings oxygen into the body and removes carbon dioxide. The digestive system breaks down food so nutrients can be absorbed, and the nervous system sends and receives signals that help coordinate body activities. Because these systems are interdependent, they must work together to keep the body functioning.\n\nKey Concepts Preserved\n- The body has organ systems that work together.\n- The circulatory system moves blood and carries oxygen and nutrients.\n- The respiratory system brings in oxygen and removes carbon dioxide.\n- The digestive and nervous systems support body function."
+    }
+  },
+  {
+    "source_id": "genetics_001",
+    "topic": "genetics",
+    "grade_band": "middle_school",
+    "source_text": "Genes are sections of DNA that contain instructions for traits and cell functions. DNA is organized into chromosomes, which are found in the nucleus of most cells. Offspring inherit genes from their parents, which is why family members often share traits. However, traits are influenced by many genes and by the environment, so inheritance is not always simple. Scientists study genes to understand heredity, health, and variation among organisms.",
+    "must_keep_facts": [
+      "Genes are sections of DNA.",
+      "Genes contain instructions for traits and cell functions.",
+      "DNA is organized into chromosomes in the nucleus of most cells.",
+      "Offspring inherit genes from their parents.",
+      "Traits can be influenced by genes and the environment."
+    ],
+    "rewrites": {
+      "below": "Genes are parts of DNA. They carry instructions for traits and for how cells work. DNA is packed into chromosomes, which are in the nucleus of most cells. Young organisms get genes from their parents, so family members often share traits. Traits are not always simple because genes and the environment both matter. Scientists study genes to learn about heredity, health, and differences in living things.\n\nKey Concepts Preserved\n- Genes are parts of DNA.\n- Genes give instructions.\n- DNA is in chromosomes in the nucleus.\n- Traits are affected by genes and the environment.",
+      "on": "Genes are sections of DNA that contain instructions for traits and cell functions. DNA is organized into chromosomes, which are located in the nucleus of most cells. Offspring inherit genes from their parents, which is one reason family members share traits. Even so, inheritance is not always simple because many traits are influenced by both genes and the environment. Scientists study genes to better understand heredity, health, and variation among organisms.\n\nKey Concepts Preserved\n- Genes are sections of DNA.\n- DNA is organized into chromosomes in the nucleus.\n- Offspring inherit genes from parents.\n- Traits are shaped by genes and the environment.",
+      "above": "Genes are segments of DNA that contain instructions for traits and cellular functions. DNA is organized into chromosomes found in the nucleus of most cells. Organisms inherit genes from their parents, which helps explain why relatives often share traits. However, inheritance is not always straightforward because many traits are influenced by multiple genes as well as environmental factors. Scientists study genes to understand heredity, health, and variation among organisms.\n\nKey Concepts Preserved\n- Genes are segments of DNA.\n- DNA is arranged into chromosomes in the nucleus.\n- Genes are inherited from parents.\n- Both genes and environment affect traits."
+    }
+  },
+  {
+    "source_id": "electric_circuits_001",
+    "topic": "electric_circuits",
+    "grade_band": "middle_school",
+    "source_text": "An electric circuit is a complete path through which electric current can flow. A simple circuit often includes an energy source such as a battery, conducting wires, and a load such as a bulb or motor. If the path is broken, the current stops. In a series circuit, current has one path to follow. In a parallel circuit, current has more than one path. Circuit design affects how electrical devices work.",
+    "must_keep_facts": [
+      "An electric circuit is a complete path for current.",
+      "A simple circuit includes an energy source, wires, and a load.",
+      "If the path is broken, current stops.",
+      "A series circuit has one path.",
+      "A parallel circuit has more than one path."
+    ],
+    "rewrites": {
+      "below": "An electric circuit is a complete path that lets electric current move. A simple circuit usually has a battery, wires, and something that uses the energy, like a bulb. If the path breaks, the current stops. In a series circuit, the current has one path. In a parallel circuit, the current has more than one path. The way a circuit is built changes how devices work.\n\nKey Concepts Preserved\n- A circuit is a complete path.\n- Simple circuits use a source, wires, and a load.\n- Broken paths stop current.\n- Series and parallel circuits are different.",
+      "on": "An electric circuit is a complete path through which electric current can flow. A simple circuit usually includes an energy source like a battery, wires that conduct current, and a load such as a bulb or motor. If the path is broken, the current stops. In a series circuit, current has only one path to follow, while in a parallel circuit it has more than one path. The design of a circuit affects how electrical devices operate.\n\nKey Concepts Preserved\n- A circuit is a complete path for current.\n- Simple circuits include a source, wires, and a load.\n- Current stops if the path is broken.\n- Series and parallel circuits differ in number of paths.",
+      "above": "An electric circuit is a complete path that allows electric current to flow. A basic circuit includes an energy source such as a battery, conducting wires, and a load like a bulb or motor. If the path is interrupted, current stops moving. In a series circuit, current follows a single path, whereas in a parallel circuit it can travel along multiple paths. Circuit design influences how electrical devices function.\n\nKey Concepts Preserved\n- Electric circuits provide a complete path for current.\n- Basic circuits include a source, wires, and a load.\n- A broken path stops current.\n- Series circuits have one path and parallel circuits have more than one."
+    }
+  },
+  {
+    "source_id": "forces_motion_001",
+    "topic": "forces_and_motion",
+    "grade_band": "middle_school",
+    "source_text": "A force is a push or pull that can change an object's motion. Unbalanced forces can make an object start moving, stop moving, speed up, slow down, or change direction. Balanced forces do not change an object's motion because they cancel each other out. Gravity is a force that pulls objects toward one another, and friction is a force that opposes motion between surfaces. Scientists use Newton's laws of motion to explain how forces affect objects.",
+    "must_keep_facts": [
+      "A force is a push or pull.",
+      "Unbalanced forces can change motion.",
+      "Balanced forces do not change motion because they cancel out.",
+      "Gravity pulls objects toward one another.",
+      "Friction opposes motion between surfaces."
+    ],
+    "rewrites": {
+      "below": "A force is a push or a pull. Unbalanced forces can make something start moving, stop, speed up, slow down, or turn. Balanced forces do not change motion because they cancel each other. Gravity pulls objects toward each other. Friction works against motion when surfaces rub. Scientists use Newton's laws to explain how forces affect motion.\n\nKey Concepts Preserved\n- A force is a push or pull.\n- Unbalanced forces change motion.\n- Balanced forces cancel out.\n- Gravity and friction are important forces.",
+      "on": "A force is a push or pull that can change an object's motion. Unbalanced forces can make an object start moving, stop, speed up, slow down, or change direction. Balanced forces do not change motion because they cancel each other out. Gravity pulls objects toward one another, and friction opposes motion between surfaces. Scientists use Newton's laws of motion to explain how forces affect objects.\n\nKey Concepts Preserved\n- A force is a push or pull.\n- Unbalanced forces change motion.\n- Balanced forces cancel out and do not change motion.\n- Gravity and friction affect moving objects.",
+      "above": "A force is a push or pull that can alter an object's motion. Unbalanced forces may cause an object to start or stop moving, speed up, slow down, or change direction, while balanced forces do not change motion because they cancel one another out. Gravity is the force that pulls objects toward each other, and friction opposes motion between surfaces. Newton's laws of motion help scientists explain how these forces influence objects.\n\nKey Concepts Preserved\n- A force is a push or pull.\n- Unbalanced forces change motion.\n- Balanced forces cancel each other.\n- Gravity and friction are forces that affect motion."
+    }
+  },
+  {
+    "source_id": "atoms_molecules_001",
+    "topic": "atoms_and_molecules",
+    "grade_band": "middle_school",
+    "source_text": "Atoms are the basic building blocks of matter. Each atom has a nucleus made of protons and neutrons, with electrons moving around the nucleus. Different elements have different numbers of protons. When atoms bond together, they form molecules. Molecules can be made of the same kind of atom or different kinds of atoms. The arrangement of atoms in a molecule affects the properties of a substance.",
+    "must_keep_facts": [
+      "Atoms are the basic building blocks of matter.",
+      "Atoms have a nucleus with protons and neutrons and electrons around it.",
+      "Different elements have different numbers of protons.",
+      "Atoms can bond to form molecules.",
+      "The arrangement of atoms affects substance properties."
+    ],
+    "rewrites": {
+      "below": "Atoms are the tiny building blocks of matter. Each atom has a center called a nucleus with protons and neutrons, and electrons move around it. Different elements have different numbers of protons. When atoms join together, they form molecules. A molecule can be made of the same kind of atoms or different kinds. The way atoms are arranged in a molecule changes the properties of a substance.\n\nKey Concepts Preserved\n- Atoms are building blocks of matter.\n- Atoms have a nucleus and electrons.\n- Elements differ by proton number.\n- Atoms join to make molecules.",
+      "on": "Atoms are the basic building blocks of matter. Each atom has a nucleus made of protons and neutrons, and electrons move around the nucleus. Different elements have different numbers of protons. When atoms bond together, they form molecules. Molecules can contain the same kind of atom or different kinds of atoms. The way atoms are arranged in a molecule affects the properties of a substance.\n\nKey Concepts Preserved\n- Atoms are the basic building blocks of matter.\n- Atoms have a nucleus and electrons.\n- Proton number identifies an element.\n- Atoms bond to form molecules.",
+      "above": "Atoms are the fundamental building blocks of matter. Each atom contains a nucleus made of protons and neutrons, with electrons moving around that nucleus. Different elements are defined by different numbers of protons. When atoms bond, they form molecules, which may contain the same kind of atom or different kinds. The arrangement of atoms within a molecule influences the properties of the substance.\n\nKey Concepts Preserved\n- Atoms are matter's basic building blocks.\n- Atoms contain protons, neutrons, and electrons.\n- Different elements have different proton numbers.\n- Molecules form when atoms bond."
+    }
+  },
+  {
+    "source_id": "ocean_currents_001",
+    "topic": "ocean_currents",
+    "grade_band": "middle_school",
+    "source_text": "Ocean currents are large movements of seawater that travel through the world's oceans. Surface currents are mainly driven by winds, while deep currents are influenced by differences in water density caused by temperature and salinity. Ocean currents move heat around the planet, which can affect weather and climate. They also influence marine ecosystems by moving nutrients and organisms. Because currents connect distant places, changes in one area can affect other regions.",
+    "must_keep_facts": [
+      "Ocean currents are large movements of seawater.",
+      "Surface currents are mainly driven by winds.",
+      "Deep currents are influenced by density differences related to temperature and salinity.",
+      "Ocean currents move heat and affect weather and climate.",
+      "Currents influence marine ecosystems and connect distant places."
+    ],
+    "rewrites": {
+      "below": "Ocean currents are big movements of seawater. Winds mostly move surface currents. Deep currents are affected by how dense the water is, which depends on temperature and saltiness. Ocean currents move heat around Earth, so they can affect weather and climate. They also move nutrients and living things in the ocean. Because currents connect faraway places, changes in one area can affect another.\n\nKey Concepts Preserved\n- Ocean currents are large water movements.\n- Winds drive surface currents.\n- Deep currents depend on density, temperature, and salinity.\n- Currents affect climate and ecosystems.",
+      "on": "Ocean currents are large movements of seawater through the world's oceans. Surface currents are mainly driven by winds, while deep currents are influenced by differences in water density caused by temperature and salinity. Currents move heat around the planet, which can affect weather and climate. They also influence marine ecosystems by carrying nutrients and organisms. Because currents connect distant places, changes in one region can affect others.\n\nKey Concepts Preserved\n- Ocean currents are large movements of seawater.\n- Winds drive most surface currents.\n- Deep currents depend on density differences.\n- Currents affect climate and marine ecosystems.",
+      "above": "Ocean currents are large-scale movements of seawater across the world's oceans. Surface currents are driven mainly by winds, while deep currents are shaped by differences in water density related to temperature and salinity. By moving heat around the planet, currents can influence weather and climate, and they also affect marine ecosystems by transporting nutrients and organisms. Because currents connect distant regions, changes in one area can have effects elsewhere.\n\nKey Concepts Preserved\n- Ocean currents are large seawater movements.\n- Surface currents are mostly wind-driven.\n- Deep currents are influenced by density, temperature, and salinity.\n- Currents affect climate and ecosystems."
+    }
+  }
+]

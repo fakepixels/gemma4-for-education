@@ -1,0 +1,47 @@
+model:
+  base_model_id: "google/gemma-4-4b-it"
+  max_seq_length: 2048
+  load_in_4bit: true
+  dtype: null
+
+data:
+  train_path: "data/processed/train.jsonl"
+  val_path: "data/processed/val.jsonl"
+  text_field: "text"
+
+lora:
+  r: 16
+  alpha: 16
+  dropout: 0.05
+  bias: "none"
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+training:
+  output_dir: "artifacts/checkpoints"
+  adapter_output_dir: "artifacts/adapters/latest"
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 4
+  warmup_steps: 5
+  num_train_epochs: 3
+  learning_rate: 2.0e-4
+  logging_steps: 1
+  eval_steps: 10
+  save_steps: 10
+  weight_decay: 0.01
+  lr_scheduler_type: "linear"
+  seed: 42
+  report_to: "none"
+
+generation:
+  max_new_tokens: 512
+
+metadata:
+  task_name: "gemma4_classroom_adaptation"
+  project_story: "Low-bandwidth middle school science lesson adaptation"

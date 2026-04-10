@@ -1,0 +1,23 @@
+model:
+  base_model_id: "google/gemma-4-4b-it"
+  adapter_path: "artifacts/adapters/latest"
+  use_4bit: false
+
+data:
+  test_path: "data/processed/test.jsonl"
+
+generation:
+  max_new_tokens: 512
+  temperature: 0.2
+  top_p: 0.9
+
+scoring:
+  levels:
+    below:
+      max_avg_words_per_sentence: 12.5
+      max_readability_grade: 4.5
+    on:
+      target_grade_band: [5.0, 7.5]
+    above:
+      min_avg_words_per_sentence: 11.5
+      min_readability_grade: 7.0
