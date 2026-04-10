@@ -14,6 +14,8 @@ if [[ -f ".env" ]]; then
   set +a
 fi
 
+export PYTORCH_ALLOC_CONF="${PYTORCH_ALLOC_CONF:-expandable_segments:True}"
+
 mkdir -p artifacts/checkpoints artifacts/adapters artifacts/evals
 
 PYTHONPATH=src python scripts/validate_dataset.py --source data/raw

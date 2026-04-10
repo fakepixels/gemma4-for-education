@@ -97,7 +97,7 @@ The evaluation script scores:
 
 ```bash
 PYTHONPATH=src python scripts/run_demo.py \
-  --model-id google/gemma-4-4b-it \
+  --model-id google/gemma-4-E4B-it \
   --adapter-path artifacts/adapters/latest
 ```
 

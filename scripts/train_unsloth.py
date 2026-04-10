@@ -1,12 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import inspect
 import json
 import os
 from pathlib import Path
-
-from datasets import load_dataset
-from transformers import TrainingArguments
 
 from gemma4_classroom.config import load_yaml
 
@@ -36,6 +34,8 @@ def parse_args() -> argparse.Namespace:
 
 
 def training_args_from_config(cfg: dict) -> TrainingArguments:
+    from transformers import TrainingArguments
+
     training_cfg = cfg["training"]
     optional_args = {
         "per_device_eval_batch_size": training_cfg.get("per_device_eval_batch_size"),
@@ -49,8 +49,14 @@ def training_args_from_config(cfg: dict) -> TrainingArguments:
         "greater_is_better": training_cfg.get("greater_is_better"),
     }
     filtered_optional_args = {key: value for key, value in optional_args.items() if value is not None}
+    training_args_signature = inspect.signature(TrainingArguments.__init__)
+    strategy_kwarg = (
+        "evaluation_strategy"
+        if "evaluation_strategy" in training_args_signature.parameters
+        else "eval_strategy"
+    )
 
-    return TrainingArguments(
+    common_kwargs = dict(
         output_dir=training_cfg["output_dir"],
         per_device_train_batch_size=training_cfg["per_device_train_batch_size"],
         gradient_accumulation_steps=training_cfg["gradient_accumulation_steps"],
@@ -58,7 +64,6 @@ def training_args_from_config(cfg: dict) -> TrainingArguments:
         num_train_epochs=training_cfg["num_train_epochs"],
         learning_rate=training_cfg["learning_rate"],
         logging_steps=training_cfg["logging_steps"],
-        evaluation_strategy="steps",
         eval_steps=training_cfg["eval_steps"],
         save_steps=training_cfg["save_steps"],
         weight_decay=training_cfg["weight_decay"],
@@ -67,9 +72,13 @@ def training_args_from_config(cfg: dict) -> TrainingArguments:
         report_to=training_cfg["report_to"],
         **filtered_optional_args,
     )
+    common_kwargs[strategy_kwarg] = "steps"
+    return TrainingArguments(**common_kwargs)
 
 
 def main() -> None:
+    from datasets import load_dataset
+
     args = parse_args()
     cfg = load_yaml(args.config)
     _, unsloth_api = resolve_unsloth_api()
