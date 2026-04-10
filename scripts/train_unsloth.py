@@ -47,14 +47,17 @@ def training_args_from_config(cfg: dict) -> TrainingArguments:
         "load_best_model_at_end": training_cfg.get("load_best_model_at_end"),
         "metric_for_best_model": training_cfg.get("metric_for_best_model"),
         "greater_is_better": training_cfg.get("greater_is_better"),
+        "max_steps": training_cfg.get("max_steps"),
     }
     filtered_optional_args = {key: value for key, value in optional_args.items() if value is not None}
     training_args_signature = inspect.signature(TrainingArguments.__init__)
-    strategy_kwarg = (
+    eval_strategy_kwarg = (
         "evaluation_strategy"
         if "evaluation_strategy" in training_args_signature.parameters
         else "eval_strategy"
     )
+    save_strategy_kwarg = "save_strategy" if "save_strategy" in training_args_signature.parameters else None
+    logging_strategy_kwarg = "logging_strategy" if "logging_strategy" in training_args_signature.parameters else None
 
     common_kwargs = dict(
         output_dir=training_cfg["output_dir"],
@@ -72,7 +75,11 @@ def training_args_from_config(cfg: dict) -> TrainingArguments:
         report_to=training_cfg["report_to"],
         **filtered_optional_args,
     )
-    common_kwargs[strategy_kwarg] = "steps"
+    common_kwargs[eval_strategy_kwarg] = training_cfg.get("evaluation_strategy", "steps")
+    if save_strategy_kwarg and training_cfg.get("save_strategy") is not None:
+        common_kwargs[save_strategy_kwarg] = training_cfg["save_strategy"]
+    if logging_strategy_kwarg and training_cfg.get("logging_strategy") is not None:
+        common_kwargs[logging_strategy_kwarg] = training_cfg["logging_strategy"]
     return TrainingArguments(**common_kwargs)
 
 

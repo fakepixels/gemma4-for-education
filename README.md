@@ -78,6 +78,18 @@ bash scripts/first_cuda_run.sh
 
 That script uses [`configs/train.first_run.yaml`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/configs/train.first_run.yaml) and [`configs/eval.first_run.yaml`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/configs/eval.first_run.yaml). The first-run profile is tuned for a **single NVIDIA L4 24 GB GPU**.
 
+If you want the repo to automatically step down through safer first-run configs after an OOM, use:
+
+```bash
+AUTO_OPTIMIZE_FIRST_RUN=1 OPTIMIZE_GOAL=benchmark bash scripts/first_cuda_run.sh
+```
+
+That adaptive path writes its candidate configs and logs under [`artifacts/tuning/`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/artifacts/tuning). You can also inspect the ladder without training:
+
+```bash
+PYTHONPATH=src python scripts/optimize_first_run.py --mode plan --goal benchmark
+```
+
 ## 4. Evaluate base vs tuned
 
 ```bash
