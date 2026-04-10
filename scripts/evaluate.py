@@ -69,7 +69,12 @@ def generate_text(model, tokenizer, prompt: str, max_new_tokens: int, temperatur
 
 def run_eval_rows(model, tokenizer, dataset, generation_cfg: dict[str, Any]) -> list[dict[str, Any]]:
     rows = []
-    for row in dataset:
+    total = len(dataset)
+    for index, row in enumerate(dataset, start=1):
+        print(
+            f"[eval] generating {index}/{total} for target_level={row['target_level']} source_id={row['source_id']}",
+            flush=True,
+        )
         prompt = build_inference_prompt(
             source_text=row["source_text"],
             target_level=row["target_level"],
