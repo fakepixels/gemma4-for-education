@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import argparse
+import gc
 import json
 from pathlib import Path
 from typing import Any
 
 from datasets import load_dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
 
 from gemma4_classroom.config import load_yaml
 from gemma4_classroom.evaluation import score_table
@@ -20,9 +22,18 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def load_generation_model(model_id: str, adapter_path: str | None = None):
+def load_generation_model(model_id: str, adapter_path: str | None = None, use_4bit: bool = False):
     tokenizer = AutoTokenizer.from_pretrained(adapter_path or model_id)
-    model = AutoModelForCausalLM.from_pretrained(model_id)
+    model_kwargs: dict[str, Any] = {
+        "low_cpu_mem_usage": True,
+    }
+    if torch.cuda.is_available():
+        model_kwargs["device_map"] = "auto"
+        model_kwargs["torch_dtype"] = torch.bfloat16
+        if use_4bit:
+            model_kwargs["load_in_4bit"] = True
+
+    model = AutoModelForCausalLM.from_pretrained(model_id, **model_kwargs)
     if adapter_path:
         from peft import PeftModel
 
@@ -30,8 +41,14 @@ def load_generation_model(model_id: str, adapter_path: str | None = None):
     return model, tokenizer
 
 
+def get_model_device(model) -> torch.device:
+    if hasattr(model, "device"):
+        return model.device
+    return next(model.parameters()).device
+
+
 def generate_text(model, tokenizer, prompt: str, max_new_tokens: int, temperature: float, top_p: float) -> str:
-    encoded = tokenizer(prompt, return_tensors="pt")
+    encoded = tokenizer(prompt, return_tensors="pt").to(get_model_device(model))
     output = model.generate(
         **encoded,
         max_new_tokens=max_new_tokens,
@@ -72,19 +89,32 @@ def run_eval_rows(model, tokenizer, dataset, generation_cfg: dict[str, Any]) -> 
     return rows
 
 
+def release_model(model) -> None:
+    del model
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
+
 def main() -> None:
     args = parse_args()
     cfg = load_yaml(args.config)
     dataset = load_dataset("json", data_files=cfg["data"]["test_path"], split="train")
 
-    base_model, base_tokenizer = load_generation_model(cfg["model"]["base_model_id"])
+    base_model, base_tokenizer = load_generation_model(
+        cfg["model"]["base_model_id"],
+        use_4bit=cfg["model"].get("use_4bit", False),
+    )
+    base_rows = run_eval_rows(base_model, base_tokenizer, dataset, cfg["generation"])
+    release_model(base_model)
+
     tuned_model, tuned_tokenizer = load_generation_model(
         cfg["model"]["base_model_id"],
         adapter_path=cfg["model"]["adapter_path"],
+        use_4bit=cfg["model"].get("use_4bit", False),
     )
-
-    base_rows = run_eval_rows(base_model, base_tokenizer, dataset, cfg["generation"])
     tuned_rows = run_eval_rows(tuned_model, tuned_tokenizer, dataset, cfg["generation"])
+    release_model(tuned_model)
 
     report = {
         "base_model_id": cfg["model"]["base_model_id"],
