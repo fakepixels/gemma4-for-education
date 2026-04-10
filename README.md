@@ -37,6 +37,64 @@ For the full writeup and qualitative examples, see:
 - [`docs/qualitative_examples.md`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/docs/qualitative_examples.md)
 - [`docs/benchmark_appendix.md`](/Users/tinahe/Desktop/analysis/unsloth/gemma-4/docs/benchmark_appendix.md)
 
+## Sanity-check examples
+
+Short answer: yes, the fine-tuned model is accurate on many held-out examples, especially when the task is "produce a complete, factual, on-level classroom rewrite." It is not perfect, and the weak spot is still `below` simplification.
+
+### Example: `electric_circuits_001` at `on`
+
+Held-out facts:
+
+- an electric circuit is a complete path for current
+- a simple circuit includes an energy source, wires, and a load
+- if the path is broken, current stops
+- a series circuit has one path
+- a parallel circuit has more than one path
+
+Base model:
+
+```text
+<blank output>
+```
+
+Tuned model:
+
+```text
+Adapted Lesson
+An electric circuit is a complete path through which electric current can flow. A simple circuit often includes an energy source such as a battery, conducting wires, and a load such as a bulb or motor. If the path is broken, the current stops. In a series circuit, current has one path to follow. In a parallel circuit, current has more than one path.
+
+Key Concepts Preserved
+- An electric circuit is a complete path for current.
+- A simple circuit includes an energy source, wires, and a load.
+- If the path is broken, current stops.
+- A series circuit has one path.
+- A parallel circuit has more than one path.
+```
+
+Why this matters:
+
+- fact coverage: `0.0 -> 1.0`
+- teacher usefulness: `0.0 -> 1.0`
+- within target band: `False -> True`
+
+### Honest caveat: `atoms_molecules_001` at `below`
+
+This is where the current fine-tune still needs work. The tuned model keeps all the science facts, but it stays closer to the source wording than the base model and misses the `below`-level simplification target.
+
+Base model opening:
+
+```text
+Atoms are the tiniest parts of stuff. Each atom has a center called a nucleus.
+```
+
+Tuned model opening:
+
+```text
+Atoms are the basic building blocks of matter. Each atom has a nucleus made of protons and neutrons, with electrons moving around the nucleus.
+```
+
+Both are scientifically sound. The tuned version is more formal and less accessible for the `below` target, which is exactly why `below` is the next data pass.
+
 ## Why this project
 
 Teachers in low-bandwidth classrooms already have enough problems. "Rewrite this lesson for three reading levels without breaking the science" should not need to be one of them.
