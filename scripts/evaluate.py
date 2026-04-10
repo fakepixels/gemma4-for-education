@@ -30,7 +30,7 @@ def load_generation_model(model_id: str, adapter_path: str | None = None, use_4b
     if torch.cuda.is_available():
         model_kwargs["device_map"] = "auto"
         model_kwargs["dtype"] = torch.bfloat16
-        if use_4bit:
+        if use_4bit and not adapter_path:
             from transformers import BitsAndBytesConfig
 
             model_kwargs["quantization_config"] = BitsAndBytesConfig(
